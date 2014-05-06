@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epic.score_app.view.ViewPlayersActivity"
+    tools:ignore="MergeRootFrame" >
+
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="153dp"
+        android:layout_height="86dp"
+        android:orientation="horizontal" >
+
+      
+
+
+     
+    </LinearLayout>
+
+     <ListView
+        android:id="@+id/playerView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </ListView>
+    
+   
+    
+    
+ 
+    
+    </LinearLayout>
+
+ 
+
+</FrameLayout>
+
