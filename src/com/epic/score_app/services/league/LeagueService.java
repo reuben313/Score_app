@@ -1,8 +1,9 @@
-package com.epic.score_app.services;
+package com.epic.score_app.services.league;
 
 import android.os.Bundle;
 
-import com.epic.score_app.services.league.LeagueGateway;
+import com.epic.score_app.services.RequestService;
+import com.epic.score_app.services.ServiceProvider;
 
 
 

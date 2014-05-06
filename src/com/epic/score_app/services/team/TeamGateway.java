@@ -1,4 +1,4 @@
-package com.epic.score_app.services;
+package com.epic.score_app.services.team;
 
 import java.util.ArrayList;
 
@@ -13,6 +13,9 @@ import android.util.Log;
 import com.epic.score_app.model.Match;
 import com.epic.score_app.model.Player;
 import com.epic.score_app.model.Team;
+import com.epic.score_app.services.EntityFactory;
+import com.epic.score_app.services.JsonService;
+import com.epic.score_app.services.ServiceProvider;
 
 public class TeamGateway extends JsonService {
     private EntityFactory factory= new EntityFactory();

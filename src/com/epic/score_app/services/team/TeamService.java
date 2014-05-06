@@ -1,4 +1,7 @@
-package com.epic.score_app.services;
+package com.epic.score_app.services.team;
+
+import com.epic.score_app.services.RequestService;
+import com.epic.score_app.services.ServiceProvider;
 
 import android.os.Bundle;
 import android.util.Log;

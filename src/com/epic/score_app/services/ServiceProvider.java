@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.epic.score_app.interfaces.IServiceProvider;
+import com.epic.score_app.services.league.LeagueService;
+import com.epic.score_app.services.team.TeamService;
 
 public class ServiceProvider implements IServiceProvider {
     public static final String Host="http://scoreapp.freeiz.com";
