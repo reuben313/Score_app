@@ -25,5 +25,15 @@ public class Team {
 	public void setTeamId(long teamId) {
 		this.teamId = teamId;
 	}
+	public void addPlayers(ArrayList<Player> players2) {
+		this.setPlayers(players2);
+		
+	}
+	public ArrayList<Player> getPlayers() {
+		return players;
+	}
+	public void setPlayers(ArrayList<Player> players) {
+		this.players = players;
+	}
 	
 }

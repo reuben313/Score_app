@@ -28,7 +28,7 @@ public class TeamGateway extends JsonService {
 		handler=han;
 	}
 
-	public JSONArray getPlayers(Integer... params) {
+	public ArrayList<Player> getPlayers(Integer... params) {
 		Log.i("getPlayers ", "Begin");
 		StringBuilder builder = new StringBuilder();
 		builder.append("lim=");
@@ -59,75 +59,64 @@ public class TeamGateway extends JsonService {
                 //    p1.setLastname(lastname);
                 //    res.add(p1);
 			//}
-		Message msg = new Message();
-		msg.what=ServiceProvider.getPlayers_response;
+	
+		
+		
 		ArrayList<Player> pls= factory.getPlayers(values);
-		msg.obj=pls;
-		Log.i("sending the data to handler ",pls.size()+"");
-		handler.sendMessage(msg);
 		
-		return  values;
+		
+		return  pls;
 		
 	}
-
+	
+	public ArrayList<Player> getPlayers(int TeamID) {
+		String link = ServiceProvider.Host+"/team.php?teamid="+TeamID;
+		JSONArray array = GetData(link);
+		ArrayList<Player> players = factory.getPlayers(array);
+		return players;
+	}
 	
 
-	public void getMatcheslp(int... params) {
-		int howmany= params[0];
-		int offset=params[1];
-		String link = ServiceProvider.Host+"/matches.php?limit="+howmany+"&"+"offset="+offset;
-		JSONArray values = null;
-		
-		 values = GetData(link);
-		 Message msg = new Message();
-			msg.what=ServiceProvider.getmatches_response;
-			ArrayList<Match> matches= factory.getMatches(values);
-			msg.obj=matches;
-			Log.i("sending the data to handler ","lazyPlayer");
-			handler.sendMessage(msg);
-		 }
-    
-	
-
-	public void getLazyPlayer(int playerId) {
-		//http://localhost/scoreapp/usercomplete.php?users=1
-		//http://scoreapp.freeiz.com/usercomplete.php?users=1
-		//usercomplete.php?users=1
+	public Player getLazyPlayer(int playerId) {
 		String link = ServiceProvider.Host+"/usercomplete.php?users="+playerId;
-		
 		JSONArray values = null;
-		
-	    values = GetData(link);
-			 
-	    Message msg = new Message();
-		msg.what=ServiceProvider.getLazyPlayer_response;
-		Player player= factory.getLazyPlayer(values);
-		msg.obj=player;
-		Log.i("sending the data to handler ","lazyPlayer");
-		handler.sendMessage(msg);
+		values = GetData(link);
+	    Player player= factory.getLazyPlayer(values);
+		return player;
 	}
 	
-	public void getTeams(int... params){
-	    JSONArray values= null;
+	public ArrayList<Team> getTeams(int... params){
+		ArrayList<Team> teams= new ArrayList<>();
+		
+		JSONArray values= null;
 		try{
 		int limit= params[0];
 		int offset=params[1];
 		int teamid =params[2];
 		String link=ServiceProvider.Host+"/team.php?teams=true&limit="+limit+"&offset="+offset;
 		values= GetData(link);
-		ArrayList<Team> teams =factory.getTeams(values);
-		Message msg = new Message();
-		msg.what=ServiceProvider.getTeams_response;
-		msg.obj=teams;
-		handler.sendMessage(msg);
+		
+		
+		teams= factory.getTeams(values);
+		
 		
 		
 		}catch(Exception ex)
 		{
 			
+			ex.printStackTrace();
 			
 		}
 		
+		
+		return teams;
+	}
+
+	public ArrayList<Player> getPlayersByUserID(int userId) {
+		String link=ServiceProvider.Host+"/team.php?userid="+userId;
+		JSONArray values = GetData(link);
+		ArrayList<Player> players = factory.getPlayersWithTeamID(values);
+		return players;
 	}
 		
 	

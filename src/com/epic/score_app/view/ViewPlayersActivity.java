@@ -16,12 +16,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.epic.score_app.R;
@@ -138,6 +136,7 @@ private PlayerItemAdapter adapter;
 			switch (msg.what) {
 			case ServiceProvider.getPlayers_response:
 				ArrayList<Player> array= (ArrayList<Player>) msg.obj;
+				
 				end=System.currentTimeMillis();
 				offset+=20;
 			    adapter.addAll(array);

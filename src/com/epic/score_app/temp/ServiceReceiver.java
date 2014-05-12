@@ -1,4 +1,4 @@
-package com.epic.score_app.test;
+package com.epic.score_app.temp;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

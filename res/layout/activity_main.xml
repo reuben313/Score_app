@@ -6,11 +6,27 @@
     tools:context="com.epic.score_app.view.MainActivity"
     tools:ignore="MergeRootFrame" >
 
-    <Button
-        android:id="@+id/viewplayer_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ViewPlayer" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/viewplayer_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ViewPlayer" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.72"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
 
 </FrameLayout>
 

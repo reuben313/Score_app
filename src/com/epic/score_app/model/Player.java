@@ -19,6 +19,7 @@ public class Player  implements Parcelable{
 	private String dateOfbirth;
 	private String height;
 	private String position;
+	private ArrayList<Team> attendingTeams = new ArrayList<Team>();
 	
 
   
@@ -97,7 +98,7 @@ private Integer jerseynumber;
 		
 		
 		
-		return null;
+		return attendingTeams;
 	}
 	
 	
@@ -164,6 +165,11 @@ public Player[] newArray(int arg0) {
 
 	public void setDateOfbirth(String dateOfbirth) {
 		this.dateOfbirth = dateOfbirth;
+	}
+
+
+	public void setAttendingTeams(ArrayList<Team> attendingTeams) {
+		this.attendingTeams = attendingTeams;
 	}
 	
 	

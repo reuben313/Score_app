@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Parcelable;
+import android.util.Log;
 
 import com.epic.score_app.model.Group;
 import com.epic.score_app.model.Match;
@@ -173,12 +174,11 @@ public class EntityFactory {
 
 
 	public ArrayList<Group> getGroups(JSONArray values) {
-		Group g = new Group();
+		
 		LinkedHashMap<Long, Group> groups =new  LinkedHashMap<Long, Group>(); 
 		try {
 			for (int i = 0; i < values.length(); i++) {
 				
-				Team t1 = new Team();
 				
 				
 				
@@ -186,28 +186,28 @@ public class EntityFactory {
 				JSONObject jsonM= obj.getJSONObject("group");
 				String team1 = jsonM.getString("teamName");
 				
-				
 				String group = jsonM.getString("groupName");
 			    long team_homeID= jsonM.getLong("TEAM_ID");
 			    long group_id= jsonM.getLong("GID");
 				//"0":"SPAIN","teamName":"SPAIN","1":"5","TEAM_ID":"5","2":"2","GID":"2","3":"Group B","groupName":"Group B"}}
-				
+				Team t1 = new Team();
+				t1.setName(team1);
+				t1.setTeamId(team_homeID);
 				
 				
 				if (groups.get(group_id)==null) {
-					g= new Group();
-					g.setGroupId(group_id);
-					g.setName(group);
+					Group temp= new Group();
+					temp.setGroupId(group_id);
+					temp.setName(group);
 					
-					t1.setName(team1);
-				    t1.setTeamId(team_homeID);
-					g.addTeam(t1);
-				}else{
-					
-					g=groups.get(group_id);
-					t1.setName(team1);
-				    t1.setTeamId(team_homeID);
-					g.addTeam(t1);
+					temp.addTeam(t1);
+					groups.put(group_id, temp);
+					 
+				}
+				else{
+						
+					groups.get(group_id).addTeam(t1);
+	              				
 					
 				}
 				}
@@ -217,7 +217,7 @@ public class EntityFactory {
 		} catch (Exception e) {
 			
 		}
-		return (ArrayList<Group>) groups.values();
+		return new ArrayList<Group>(groups.values());
 	}
 	
 	
@@ -274,12 +274,79 @@ public class EntityFactory {
 
 
 	public ArrayList<Team> getTeams(JSONArray values) {
-		// TODO Auto-generated method stub
-		return null;
+		//{"team":{"0":"1","TEAM_ID":"1","1":"BRAZIL","NAME":"BRAZIL"}},{"team":{"0":"2","TEAM_ID":"2","1":"CROATIA","NAME":"CROATIA"}}
+		ArrayList<Team> teams = new ArrayList<Team>();
+	
+	
+		try {
+			for (int i = 0; i < values.length(); i++) {
+			JSONObject obj;
+			    obj = values.getJSONObject(i);
+				Team t = new Team();
+			    JSONObject jsonM= obj.getJSONObject("team");
+				String teamname = jsonM.getString("NAME");
+		        long teamId= jsonM.getLong("TEAM_ID");
+		        t.setName(teamname);
+		        t.setTeamId(teamId);
+		        teams.add(t);
+		       
+			}
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+		
+		
+		
+		return teams;
+	}
+
+
+
+	public ArrayList<Player> getPlayersWithTeamID(JSONArray values) {
+		ArrayList<Player> players = new ArrayList<Player>();
+		for (int i = 0; i < values.length(); i++) {
+			try {
+				JSONObject obj = values.getJSONObject(i);
+				JSONObject pl = obj.getJSONObject("player");
+				//"0":"1","PLAYER_ID":"1","1":"AZZEDINE","FIRST_NAME":"AZZEDINE","2":"DOUKHA","LAST_NAME":"DOUKHA","3":"ALGERIA","NATIONALITY":"ALGERIA"}}
+				long  player_id= pl.getLong("PLAYER_ID");
+				String name= pl.getString("FIRST_NAME");
+				String lastname= pl.getString("LAST_NAME");
+				String nationality=pl.getString("NATIONALITY");
+				Player player = new Player();
+				player.setName(name);
+				player.setLastname(lastname);
+				player.setNationality(nationality);
+				player.setPlayer_id(player_id);
+				Team t = new Team();
+				long teamId = pl.getLong("TEAM_ID");
+				t.setTeamId(teamId);
+				player.getAttendingTeams().add(t);
+				
+				
+				players.add(player);
+				
+				
+			
+			    } catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			    }
+			  }
+			
+		
+		
+		
+		return players;
+		
+	}
 	}
 	
 	
 	
 	
 	
-}
+
