@@ -1,6 +1,8 @@
 package com.epic.score_app.services;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -13,6 +15,7 @@ import android.util.Log;
 
 import com.epic.score_app.model.Group;
 import com.epic.score_app.model.Match;
+import com.epic.score_app.model.News;
 import com.epic.score_app.model.Player;
 import com.epic.score_app.model.Team;
 
@@ -342,6 +345,52 @@ public class EntityFactory {
 		
 		return players;
 		
+	}
+
+
+
+	public ArrayList<News> getNews(JSONArray values) {
+		ArrayList<News> newslist = new ArrayList<News>();
+		try {
+		for (int i = 0; i < values.length(); i++) {
+			//[{"news":{"0":"1","NEWS_ID":"1","1":"test","TITLE":"test","2":"test content ","content":"test content ","3":"ere",
+			//"title link":"ere","4":"1","content_photo_id":"1","5":"0000-00-00 00:00:00","datum":"0000-00-00 00:00:00"}}]
+			
+				JSONObject newsContainer = values.getJSONObject(i);
+				JSONObject jnews = newsContainer.getJSONObject("news");
+				News  news= new News();
+				long news_id;
+				String title;
+				String content;
+				String titlephotoLink;
+				int contentphotoid;
+			    Date datum;
+			    
+			    news_id=jnews.getLong("NEWS_ID");
+			    title= jnews.getString("TITLE");
+			    content= jnews.getString("content");
+			    titlephotoLink= jnews.getString("title link");
+			    contentphotoid=jnews.getInt("content_photo_id");
+			    String datuml=jnews.getString("datum");
+			    datum= new Date(datuml);
+			    
+			    news.setTitle(title);
+			    news.setContent(content);
+			    news.setContentphotoid(contentphotoid);
+			    news.setNews_id(news_id);
+			    news.setDatum(datum);
+			    news.setTitlephotoLink(titlephotoLink);
+			    newslist.add(news);
+				
+				
+				
+			} 
+			
+		}catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return newslist;
 	}
 	}
 	
