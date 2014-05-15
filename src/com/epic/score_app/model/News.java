@@ -5,8 +5,7 @@ import java.util.Date;
 
 
 public class News {
-	//[{"news":{"0":"1","NEWS_ID":"1","1":"test","TITLE":"test","2":"test content ","content":"test content ","3":"ere",
-	//"title link":"ere","4":"1","content_photo_id":"1","5":"0000-00-00 00:00:00","datum":"0000-00-00 00:00:00"}}]
+	
 	private long news_id;
 	private String title;
 	private String content;

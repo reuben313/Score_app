@@ -86,7 +86,7 @@ public class TeamGateway extends JsonService {
 	}
 	
 	public ArrayList<Team> getTeams(int... params){
-		ArrayList<Team> teams= new ArrayList<>();
+		ArrayList<Team> teams= new ArrayList<Team>();
 		
 		JSONArray values= null;
 		try{

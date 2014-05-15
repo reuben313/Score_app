@@ -18,6 +18,7 @@ import com.epic.score_app.model.Match;
 import com.epic.score_app.model.News;
 import com.epic.score_app.model.Player;
 import com.epic.score_app.model.Team;
+import com.epic.score_app.model.Wallof;
 
 public class EntityFactory {
 
@@ -372,13 +373,13 @@ public class EntityFactory {
 			    titlephotoLink= jnews.getString("title link");
 			    contentphotoid=jnews.getInt("content_photo_id");
 			    String datuml=jnews.getString("datum");
-			    datum= new Date(datuml);
+			    //datum= new Date(datuml);
 			    
 			    news.setTitle(title);
 			    news.setContent(content);
 			    news.setContentphotoid(contentphotoid);
 			    news.setNews_id(news_id);
-			    news.setDatum(datum);
+			  //  news.setDatum(datum);
 			    news.setTitlephotoLink(titlephotoLink);
 			    newslist.add(news);
 				
@@ -391,6 +392,37 @@ public class EntityFactory {
 			e.printStackTrace();
 		}
 		return newslist;
+	}
+
+
+
+	public ArrayList<Wallof> getWallofs(JSONArray values) {
+		ArrayList<Wallof> wallofs = new ArrayList<Wallof>();
+		try{
+		for (int i = 0; i < values.length(); i++) {
+			JSONObject obj = values.getJSONObject(i);
+			JSONObject wallof = obj.getJSONObject("wallof");
+			Wallof wlof = new Wallof();
+			//[{"wallof":{"0":"1","wall_of_fame_id":"1","1":"0","photo_id":"0","2":"0","like":"0","3":"0","dislike":"0"}}] 
+			long wallofID=wallof.getLong("wall_of_fame_id");
+			   int likes=wallof.getInt("like");
+			   int dislikes=wallof.getInt("dislike");
+			   int photoId=wallof.getInt("photo_id");
+			   String photolink="defualt";
+			   
+			wlof.setWallofID(wallofID);
+			wlof.setDislikes(dislikes);
+			wlof.setLikes(likes);
+			wlof.setPhotoId(photoId);
+			wlof.setPhotolink(photolink);
+			wallofs.add(wlof);
+			
+		}
+		
+		}catch(Exception ex)
+		{}
+		
+		return wallofs;
 	}
 	}
 	
