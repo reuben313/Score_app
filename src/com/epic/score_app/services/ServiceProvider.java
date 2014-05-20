@@ -1,17 +1,17 @@
 package com.epic.score_app.services;
 
-import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.epic.score_app.interfaces.IServiceProvider;
 import com.epic.score_app.services.league.LeagueService;
 import com.epic.score_app.services.team.TeamService;
+import com.epic.score_app.temp.GlobalGateway;
 
 public class ServiceProvider implements IServiceProvider {
     public static final String Host="http://scoreapp.freeiz.com";
-	public static final int getPlayers = 1;
+	
+    public static final int getPlayers = 1;
 	public static final int getPlayers_response = 11;
 	
 	public static final int getPlayer = 2;
@@ -35,10 +35,17 @@ public class ServiceProvider implements IServiceProvider {
 	public static final int getTeamPlayers = 8;
 	public static final int getTeamPlayers_response = 88;
 	
+	public static final int getNews = 9;
+	public static final int getNews_response = 99;
+	
+	public static final int getWallOf = 10;
+	public static final int getWallOf_response = 1010;
+	
 	
 	
 	private TeamService teamservice= null;
-   private LeagueService leagueservice= null;
+    private LeagueService leagueservice= null;
+    private GlobalService globalService=null;
 
 	
 	
@@ -111,6 +118,18 @@ public class ServiceProvider implements IServiceProvider {
    	   leagueservice.setHandler(handler);
    	   leagueservice.execute(b);
    	break;
+   	
+    case getNews:
+    	  globalService = new GlobalService();
+    	  globalService.setHandler(handler);
+    	  globalService.execute(b);
+    	break;
+    	
+    case getWallOf:
+  	  globalService = new GlobalService();
+  	  globalService.setHandler(handler);
+  	  globalService.execute(b);
+  	break;
 	
 	
 	
