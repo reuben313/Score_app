@@ -3,6 +3,7 @@
 	<name>Score_T</name>
 	<comment></comment>
 	<projects>
+		<project>Score_app</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
