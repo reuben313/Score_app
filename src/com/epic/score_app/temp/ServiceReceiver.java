@@ -12,7 +12,8 @@ public class ServiceReceiver extends BroadcastReceiver{
 	public ServiceReceiver(Handler handle){
 		
 		this.handler=handle;
-		//hello
+		//hello fixed
+		//
 		
 	}
 	
