@@ -22,7 +22,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.epic.score_app.R;
 import com.epic.score_app.ViewPlayer;
 import com.epic.score_app.adapters.PlayerItemAdapter;
 import com.epic.score_app.model.Player;

@@ -7,5 +7,34 @@
     <string name="title_activity_view_player">ViewPlayerActivity</string>
     <string name="title_activity_temp_view_players">TempViewPlayers</string>
     <string name="host">192.168.1.166</string>
+     <string name="title_activity_speler">SpelerActivity</string>
+     
+
+    <string-array name="speler_array">
+        <item>Ibrahimovich, Zlatan</item>
+        <item>Robben, Arjan</item>
+        <item>Messi, Lionel</item>
+        <item>Van de Sar, Edwin</item>
+        <item>Bergkamp, Dennis</item>
+        <item>Ribéry, Franck</item>
+        <item>Alves, Dani</item>
+        <item>Kuyt, Dirk</item>
+    </string-array>
+    <string-array name="team_array">
+        <item>Nederland</item>
+        <item>Duitsland</item>
+        <item>Griekenland</item>
+        <item>Spanje</item>
+        <item>Brazilië</item>
+        <item>Chili</item>
+        <item>Italië</item>
+        <item>Kameroen</item>
+    </string-array>
+
+    <string name="title_activity_team">TeamActivity</string>
+    <string name="title_activity_poule">PouleActivity</string>
+    <string name="title_activity_nieuws">NieuwsActivity</string>
+    <string name="title_activity_wedstrijden">WedstrijdenActivity</string>
+    
 
 </resources>

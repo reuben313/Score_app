@@ -3,17 +3,7 @@ package com.epic.score_app.adapters;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
-
-
-
-import com.epic.score_app.R;
-
 import android.app.Activity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.epic.score_app.model.Player;
+import com.epic.score_app.view.R;
 
 
 public class PlayerItemAdapter extends ArrayAdapter<Player>{
