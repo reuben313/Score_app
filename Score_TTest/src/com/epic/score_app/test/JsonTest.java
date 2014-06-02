@@ -16,9 +16,10 @@ import com.epic.score_app.model.Player;
 import com.epic.score_app.model.Team;
 import com.epic.score_app.model.Wallof;
 import com.epic.score_app.services.EntityFactory;
+import com.epic.score_app.services.GlobalGateway;
 import com.epic.score_app.services.league.LeagueGateway;
 import com.epic.score_app.services.team.TeamGateway;
-import com.epic.score_app.temp.GlobalGateway;
+
 
 public class JsonTest extends TestCase {
 private Handler h;
@@ -136,6 +137,26 @@ public void testWallof(){
 	wallofs =gateway.getWallofs();
 	assertTrue(wallofs.size()>0);
 
+}
+
+public void testUpdate_w(){
+	GlobalGateway gateway = new GlobalGateway(null);
+	
+	boolean hit= true;
+	Wallof ofs ;
+	ArrayList<Wallof> wallofs  = new ArrayList<Wallof>();
+	wallofs =gateway.getWallofs();
+	for (Wallof wallof : wallofs) {
+		ofs=gateway.update_Wallof(wallof.getWallofID(),hit);
+		int _like= wallof.getLikes();
+		int like= ofs.getLikes();
+		int verschill= like-_like;
+		assertTrue(verschill==1);
+	}
+	
+	
+	
+	
 }
 
 

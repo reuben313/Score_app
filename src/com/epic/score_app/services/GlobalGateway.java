@@ -1,4 +1,4 @@
-package com.epic.score_app.temp;
+package com.epic.score_app.services;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -10,9 +10,6 @@ import android.os.Handler;
 
 import com.epic.score_app.model.News;
 import com.epic.score_app.model.Wallof;
-import com.epic.score_app.services.EntityFactory;
-import com.epic.score_app.services.JsonService;
-import com.epic.score_app.services.ServiceProvider;
 
 public class GlobalGateway extends JsonService{
  private EntityFactory factory = new EntityFactory();
@@ -44,13 +41,19 @@ public class GlobalGateway extends JsonService{
 	}
 	
 	
-	public Wallof updateWallof()
+	public Wallof update_Wallof(long id, boolean hit)
 	{
 		JSONArray jvalues = new JSONArray();
 		Wallof temp = new Wallof();
-		String link = ServiceProvider.Host+"/wallofupdate.php";
-		LinkedHashMap<String, String> values = new LinkedHashMap<String, String>();
 		
+		String link = ServiceProvider.Host+"/update.php";
+		LinkedHashMap<String, String> values = new LinkedHashMap<String, String>();
+		values.put("wid", id+"");
+		if (hit) {
+			values.put("like", "");
+		}else{
+			values.put("dislike", "");
+		}
 	  jvalues=	sendData(link, values);
 	 temp=  factory.getWallofs(jvalues).get(0);
 		

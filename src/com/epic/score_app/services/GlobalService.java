@@ -7,7 +7,6 @@ import android.os.Message;
 
 import com.epic.score_app.model.News;
 import com.epic.score_app.model.Wallof;
-import com.epic.score_app.temp.GlobalGateway;
 
 public class GlobalService extends RequestService{
 

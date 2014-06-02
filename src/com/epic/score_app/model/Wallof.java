@@ -6,6 +6,7 @@ public class Wallof {
   private int dislikes;
   private int photoId;
   private String photolink;
+  public enum HIT {LIKE,DISLIKE};
 
   
   

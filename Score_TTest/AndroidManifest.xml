@@ -8,7 +8,7 @@
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.epic.score_app" />
+        android:targetPackage="com.epic.score_app.view" />
 
     <application
         android:icon="@drawable/ic_launcher"
