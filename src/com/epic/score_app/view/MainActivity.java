@@ -2,6 +2,7 @@ package com.epic.score_app.view;
 
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+@SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
 	private Button teams, spelers, wedstrijden, poule, settings, nieuws;
@@ -19,6 +21,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		getActionBar().hide();
 
 		teams = (Button) findViewById(R.id.Button01);
 		spelers = (Button) findViewById(R.id.Button02);
@@ -75,12 +78,12 @@ public class MainActivity extends Activity {
 
 	}
 
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+//	is niet nodig omdat er een instellingen knop is, staat ook niet mooi.
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.main, menu);
+//		return true;
+//	}
 
 }

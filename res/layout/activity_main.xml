@@ -2,10 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:adjustViewBounds="true"
+    android:background="@drawable/grass_texture241"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:scaleType="fitCenter"
     tools:context=".MainActivity" >
 
     <ImageView
@@ -15,92 +18,96 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/tumb_voetbal" />
-    
- <LinearLayout
-     android:id="@+id/ll1"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_below="@+id/imageView1"
-     android:layout_marginTop="5dp"
-     android:orientation="horizontal" >
-     <Button
-        android:id="@+id/Button01"
-        android:layout_width="0dp"
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Teams" />
-      <Button
-        android:id="@+id/Button02"
-        android:layout_width="0dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Button01"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Teams" />
+
+        <Button
+            android:id="@+id/Button02"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Spelers" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Spelers" />
-     
- </LinearLayout>
- 
- <LinearLayout
-     android:id="@+id/ll2"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_below="@+id/ll1"
-     android:layout_marginTop="5dp"
-     android:orientation="horizontal" >
-     <Button
-        android:id="@+id/Button03"
-        android:layout_width="0dp"
+        android:layout_below="@+id/ll1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Button03"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Wedstrijden" />
+
+        <Button
+            android:id="@+id/Button04"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Poule" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Wedstrijden" />
-      <Button
-        android:id="@+id/Button04"
-        android:layout_width="0dp"
+        android:layout_below="@+id/ll2"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Button05"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nieuws" />
+
+        <Button
+            android:id="@+id/Button06"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Foto&apos;s" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Poule" />
-     
- </LinearLayout>
- 
- <LinearLayout
-     android:id="@+id/ll3"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_below="@+id/ll2"
-     android:layout_marginTop="5dp"
-     android:orientation="horizontal" >
-     <Button
-        android:id="@+id/Button05"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Nieuws" />
-      <Button
-        android:id="@+id/Button06"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Foto's" />
-     
- </LinearLayout>
- 
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_below="@+id/ll3"
-     android:layout_marginTop="5dp"
-     android:orientation="horizontal" >
-     <Button
-        android:id="@+id/Button07"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Stadium" />
-      <Button
-        android:id="@+id/Button08"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Instellingen" />
-     
- </LinearLayout>
-    
+        android:layout_below="@+id/ll3"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Button07"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stadium" />
+
+        <Button
+            android:id="@+id/Button08"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Instellingen" />
+    </LinearLayout>
+
 </RelativeLayout>
