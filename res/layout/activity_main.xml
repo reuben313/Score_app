@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/ll1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/imageView1"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
@@ -45,7 +45,7 @@
     <LinearLayout
         android:id="@+id/ll2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/ll1"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
@@ -68,7 +68,7 @@
     <LinearLayout
         android:id="@+id/ll3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/ll2"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
@@ -102,11 +102,22 @@
             android:layout_weight="1"
             android:text="Stadium" />
 
+        <!--
+             <Button
+            android:id="@+id/Button08"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Instellingen" />
+        -->
+
         <Button
             android:id="@+id/Button08"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/settings"
             android:text="Instellingen" />
     </LinearLayout>
 
