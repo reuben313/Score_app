@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo_schild" />
+        android:src="@drawable/logo_schild_big_ribbon" />
 
     <LinearLayout
         android:id="@+id/ll1"
