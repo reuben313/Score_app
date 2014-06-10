@@ -92,7 +92,10 @@ public class TeamGateway extends JsonService {
 		try{
 		int limit= params[0];
 		int offset=params[1];
-		int teamid =params[2];
+		if(params.length>2){
+			//int teamid =params[2];
+		}
+		
 		String link=ServiceProvider.Host+"/team.php?teams=true&limit="+limit+"&offset="+offset;
 		values= GetData(link);
 		

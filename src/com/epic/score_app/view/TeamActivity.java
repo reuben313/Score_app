@@ -1,22 +1,46 @@
 package com.epic.score_app.view;
 
+import java.util.ArrayList;
+
+import com.epic.score_app.adapters.TeamItemAdapter;
+import com.epic.score_app.model.Team;
+import com.epic.score_app.services.ServiceProvider;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
 
 public class TeamActivity extends Activity {
+	private ArrayList<Team> teams= new ArrayList<Team>();
+	private TeamItemAdapter adapter;
+	private ListView teams_list;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_team);
-		// Show the Up button in the action bar.
+		adapter = new TeamItemAdapter(this, teams);
+		teams_list=(ListView) findViewById(R.id.lijstspelers);
+		teams_list.setAdapter(adapter);
 		setupActionBar();
+	
 	}
+	
+	@Override
+	protected void onStart() {
+		loadTeams();
+		super.onStart();
+	}
+	
+	
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
@@ -51,5 +75,40 @@ public class TeamActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
+	
+	public void loadTeams(){
+		Bundle b = new Bundle();
+		b.putInt("requestcode", ServiceProvider.getTeams);
+		b.putInt("limit", 20);
+		b.putInt("offset", 0);
+		ServiceProvider.getInsance().getData(b, handler);
+		
+	}
+	
+	
+	private Handler handler = new Handler(){
+		
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case ServiceProvider.getTeams_response:
+				teams= (ArrayList<Team>) msg.obj;
+				adapter.addAll(teams);
+				
+				break;
+
+			default:
+				break;
+			}
+			
+		}
+		
+			
+		};	
+	
+		
+	
 
 }
