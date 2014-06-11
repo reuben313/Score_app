@@ -22,24 +22,47 @@
     <LinearLayout
         android:id="@+id/ll1"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/imageView1"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
 
+        <!--
         <Button
             android:id="@+id/Button01"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Teams" />
+            android:text="Teams" /> -->
+            
+            <ImageButton
+            android:id="@+id/Button01"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/teambutton" />
+            
+             <ImageButton
+            android:id="@+id/Button02"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/teambutton" />
 
-        <Button
+        <!-- <Button
             android:id="@+id/Button02"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Spelers" />
+            android:text="Spelers" /> -->
     </LinearLayout>
 
     <LinearLayout
@@ -108,8 +131,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Instellingen" />
-        -->
+            android:text="Instellingen" /> -->
 
         <Button
             android:id="@+id/Button08"

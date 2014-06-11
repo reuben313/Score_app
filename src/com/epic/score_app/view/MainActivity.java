@@ -10,11 +10,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
-	private Button teams, spelers, wedstrijden, poule, settings, nieuws;
+	private Button wedstrijden, poule, settings, nieuws;
+	private ImageButton teams, spelers;
 
 
 	@Override
@@ -23,8 +25,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		getActionBar().hide();
 
-		teams = (Button) findViewById(R.id.Button01);
-		spelers = (Button) findViewById(R.id.Button02);
+		teams = (ImageButton) findViewById(R.id.Button01);
+		spelers = (ImageButton) findViewById(R.id.Button02);
 		wedstrijden = (Button) findViewById(R.id.Button03);
 		poule = (Button) findViewById(R.id.Button04);
 		nieuws = (Button) findViewById(R.id.Button05);
