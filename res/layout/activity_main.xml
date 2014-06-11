@@ -35,6 +35,13 @@
             android:layout_weight="1"
             android:text="Teams" /> -->
             
+            <!-- <Button
+            android:id="@+id/Button02"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Spelers" /> -->
+            
             <ImageButton
             android:id="@+id/Button01"
             android:layout_width="fill_parent"
@@ -56,47 +63,62 @@
             android:clickable="true"
             android:scaleType="fitCenter"
             android:src="@drawable/teambutton" />
-
-        <!-- <Button
-            android:id="@+id/Button02"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Spelers" /> -->
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll2"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/ll1"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
 
-        <Button
+        <!-- <Button
             android:id="@+id/Button03"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Wedstrijden" />
-
-        <Button
+            android:text="Wedstrijden" /> -->
+            
+        <!-- <Button
             android:id="@+id/Button04"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Poule" />
+            android:text="Poule" /> -->
+            
+         <ImageButton
+            android:id="@+id/Button03"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/wedstrijdenbutton" />
+         
+         <ImageButton
+            android:id="@+id/Button04"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/wedstrijdenbutton" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll3"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/ll2"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
 
-        <Button
+        <!-- <Button
             android:id="@+id/Button05"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -108,7 +130,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Foto&apos;s" />
+            android:text="Foto&apos;s" /> -->
+            
+         <ImageButton
+            android:id="@+id/Button05"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/nieuwsbutton" />
+            
+         <ImageButton
+            android:id="@+id/Button06"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/nieuwsbutton" />
     </LinearLayout>
 
     <LinearLayout
