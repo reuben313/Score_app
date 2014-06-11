@@ -15,8 +15,7 @@ import android.widget.ImageButton;
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
-	private Button settings;
-	private ImageButton teams, spelers, wedstrijden, poule, nieuws;
+	private ImageButton teams, spelers, wedstrijden, poule, nieuws, stadions, settings;
 
 
 	@Override
@@ -30,7 +29,8 @@ public class MainActivity extends Activity {
 		wedstrijden = (ImageButton) findViewById(R.id.Button03);
 		poule = (ImageButton) findViewById(R.id.Button04);
 		nieuws = (ImageButton) findViewById(R.id.Button05);
-		settings = (Button) findViewById(R.id.Button08);
+		stadions = (ImageButton) findViewById(R.id.Button07);
+		settings = (ImageButton) findViewById(R.id.Button08);
 	
 
 		teams.setOnClickListener(new OnClickListener(){

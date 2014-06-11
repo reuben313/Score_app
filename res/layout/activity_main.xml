@@ -15,6 +15,7 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_schild_big_ribbon" />
@@ -157,34 +158,47 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_below="@+id/ll3"
         android:layout_marginTop="5dp"
         android:orientation="horizontal" >
 
-        <Button
+        <!-- <Button
             android:id="@+id/Button07"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Stadium" />
-
-        <!--
-             <Button
-            android:id="@+id/Button08"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Instellingen" /> -->
-
+        
         <Button
             android:id="@+id/Button08"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="Instellingen" /> -->
+            
+        <ImageButton
+            android:id="@+id/Button07"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
             android:background="@android:color/transparent"
-            android:drawableRight="@drawable/settings"
-            android:text="Instellingen" />
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/stadionsbuttons" />
+        
+        <ImageButton
+            android:id="@+id/Button08"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/stadionsbuttons" />
+
     </LinearLayout>
 
 </RelativeLayout>
