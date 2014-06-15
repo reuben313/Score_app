@@ -31,7 +31,7 @@ public class NieuwsActivity extends Activity {
 	
 	
 	// All static variables
-		static final String URL = "http://api.androidhive.info/music/music.xml";
+		static final String URL = "http://www.teamsense.comule.com/nieuws.xml";
 		// XML node keys
 		static final String KEY_SONG = "song"; // parent node
 		static final String KEY_ID = "id";
