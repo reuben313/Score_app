@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
    <activity
-            android:name="com.epic.score_app.view.MainActivity"
+            android:name="com.epic.score_app.viewlayer.MainActivity"
             android:label="@string/app_name" 
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,58 +24,55 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.epic.score_app.view.SpelerActivity"
+            android:name="com.epic.score_app.viewlayer.SpelerActivity"
             android:label="@string/title_activity_speler"
-            android:parentActivityName="com.epic.score_app.view.MainActivity" >
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epic.score_app.view.MainActivity" />
+                android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:name="com.epic.score_app.view.TeamActivity"
+            android:name="com.epic.score_app.viewlayer.TeamActivity"
             android:label="@string/title_activity_team"
-            android:parentActivityName="com.epic.score_app.view.MainActivity" >
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epic.score_app.view.MainActivity" />
+                android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:name="com.epic.score_app.view.PouleActivity"
+            android:name="com.epic.score_app.viewlayer.PouleActivity"
             android:label="@string/title_activity_poule"
-            android:parentActivityName="com.epic.score_app.view.MainActivity" >
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epic.score_app.view.MainActivity" />
+                android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:name="com.epic.score_app.view.SettingsActivity"
+            android:name="com.epic.score_app.viewlayer.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.epic.score_app.view.MainActivity" >
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epic.score_app.view.MainActivity" />
+                android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:name="com.epic.score_app.view.NieuwsActivity"
+            android:name="com.epic.score_app.viewlayer.NieuwsActivity"
             android:label="@string/title_activity_nieuws"
-            android:parentActivityName="com.epic.score_app.view.MainActivity" >
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epic.score_app.view.MainActivity" />
+                android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:name="com.epic.score_app.view.WedstrijdenActivity"
+            android:name="com.epic.score_app.viewlayer.WedstrijdenActivity"
             android:label="@string/title_activity_wedstrijden"
-            android:parentActivityName="com.epic.score_app.view.MainActivity" >
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epic.score_app.view.MainActivity" />
+                android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         
-        <activity
-            android:name="com.epic.score_app.view.ViewPlayersActivity"
-            android:label="@string/title_activity_view_player" >
-        </activity>
+       
         <activity
             android:name="com.epic.score_app.view.TempViewPlayers"
             android:label="@string/title_activity_temp_view_players" >

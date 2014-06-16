@@ -9,17 +9,17 @@ import org.json.JSONArray;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.epic.score_app.model.Group;
-import com.epic.score_app.model.Match;
-import com.epic.score_app.model.News;
-import com.epic.score_app.model.Player;
-import com.epic.score_app.model.Team;
-import com.epic.score_app.model.Wallof;
-import com.epic.score_app.services.EntityFactory;
-import com.epic.score_app.services.GlobalGateway;
-import com.epic.score_app.services.league.LeagueGateway;
-import com.epic.score_app.services.team.TeamGateway;
+import com.epic.score_app.datalayer.EntityFactory;
+import com.epic.score_app.datalayer.GlobalGateway;
+import com.epic.score_app.datalayer.LeagueGateway;
+import com.epic.score_app.datalayer.TeamGateway;
 
+import domainmodel.Group;
+import domainmodel.Match;
+import domainmodel.News;
+import domainmodel.Player;
+import domainmodel.Team;
+import domainmodel.Wallof;
 
 public class JsonTest extends TestCase {
 private Handler h;
