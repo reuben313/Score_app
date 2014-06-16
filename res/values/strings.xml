@@ -4,10 +4,16 @@
     <string name="app_name">Score!</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="host">192.168.1.166</string>
+    
+    <!-- scherm titels -->
+    <string name="title_activity_speler">Speler overzicht</string>
+    <string name="title_activity_team">Team overzicht</string>
+    <string name="title_activity_poule">Poule Overzicht</string>
+    <string name="title_activity_nieuws">Nieuws overzicht</string>
+    <string name="title_activity_wedstrijden">Wedstrijden</string>
     <string name="title_activity_view_player">ViewPlayerActivity</string>
     <string name="title_activity_temp_view_players">TempViewPlayers</string>
-    <string name="host">192.168.1.166</string>
-     <string name="title_activity_speler">SpelerActivity</string>
      
 
     <string-array name="speler_array">
@@ -31,10 +37,7 @@
         <item>Kameroen</item>
     </string-array>
 
-    <string name="title_activity_team">TeamActivity</string>
-    <string name="title_activity_poule">PouleActivity</string>
-    <string name="title_activity_nieuws">NieuwsActivity</string>
-    <string name="title_activity_wedstrijden">WedstrijdenActivity</string>
+    
     
 
 </resources>
