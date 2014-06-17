@@ -97,7 +97,7 @@ ArrayList<Team> teams = new ArrayList<Team>();
 TeamGateway gateway = new TeamGateway(null);
 teams= gateway.getTeams(20,0,0);
 assertTrue(teams.size()==32);
-assertEquals(1l, teams.get(0).getTeamId());
+
 }
 
 
@@ -128,7 +128,7 @@ public void testGetNews(){
 	GlobalGateway gateway = new GlobalGateway(null);
 	ArrayList<News> news  = new ArrayList<News>();
 	news =gateway.getNews();
-	assertTrue(news.size()>0);
+	assertTrue(news.size()>1);
 	}
 
 public void testWallof(){
