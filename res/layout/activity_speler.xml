@@ -9,10 +9,10 @@
     tools:context=".SpelerActivity" >
 
     <ListView
-        android:id="@+id/lijstspelers"
+        android:id="@+id/lijstplayers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/speler_array"
+        
         />
     
     
