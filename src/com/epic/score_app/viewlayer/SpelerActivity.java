@@ -79,17 +79,17 @@ public class SpelerActivity extends Activity {
 	
 	public void loadPlayers(){
 		Bundle b = new Bundle();
-		b.putInt("requestcode", ServiceProvider.getPlayer);
+		b.putInt("requestcode", ServiceProvider.getPlayers);
 		b.putInt("limit", 20);
 		b.putInt("offset", 0);
-		ServiceProvider.getInsance().getData(b, playerhandler);
+		ServiceProvider.getInsance().getData(b, playershandler);
 	}
 
-	private Handler playerhandler = new Handler(){
+	private Handler playershandler = new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case ServiceProvider.getPlayer_response:
+			case ServiceProvider.getPlayers_response:
 				spelers= (ArrayList<Player>) msg.obj;
 				adapter.addAll(spelers);
 				break;
