@@ -1,27 +1,47 @@
 package com.epic.score_app.viewlayer;
 
-import com.epic.score_app.view.R;
-import com.epic.score_app.view.R.layout;
-import com.epic.score_app.view.R.menu;
+import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.epic.score_app.serviceslayer.ServiceProvider;
+import com.epic.score_app.view.R;
+import com.epic.score_app.viewlayer.adapters.PlayerItemAdapter;
+
+
+import domainmodel.Player;
 
 public class SpelerActivity extends Activity {
+	private ArrayList<Player> spelers= new ArrayList<Player>();
+	private PlayerItemAdapter adapter;
+	private ListView spelers_list;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_speler);
-		// Show the Up button in the action bar.
+		adapter = new PlayerItemAdapter(this, spelers);
+		spelers_list=(ListView) findViewById(R.id.lijstplayers);
+		spelers_list.setAdapter(adapter);
 		setupActionBar();
 	}
 
+	
+	@Override
+	protected void onStart() {
+		loadPlayers();
+		super.onStart();
+	}
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
 	 */
@@ -55,5 +75,28 @@ public class SpelerActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
+	public void loadPlayers(){
+		Bundle b = new Bundle();
+		b.putInt("requestcode", ServiceProvider.getPlayer);
+		b.putInt("limit", 20);
+		b.putInt("offset", 0);
+		ServiceProvider.getInsance().getData(b, playerhandler);
+	}
+
+	private Handler playerhandler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case ServiceProvider.getPlayer_response:
+				spelers= (ArrayList<Player>) msg.obj;
+				adapter.addAll(spelers);
+				break;
+			default:
+				break;
+			}
+		}
+	};	
 
 }
