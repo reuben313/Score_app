@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 
 	private ImageButton teams, spelers, wedstrijden, poule, nieuws, stadions, settings;
 
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
