@@ -11,6 +11,7 @@ import com.epic.score_app.viewlayer.adapters.TeamItemAdapter;
 import domainmodel.Team;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,6 +34,8 @@ public class TeamActivity extends Activity {
 		adapter = new TeamItemAdapter(this, teams);
 		teams_list=(ListView) findViewById(R.id.lijstspelers);
 		teams_list.setAdapter(adapter);
+		teams_list.setDivider(new ColorDrawable(0xff444444));
+		teams_list.setDividerHeight(1);
 		setupActionBar();
 	}
 
