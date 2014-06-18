@@ -2,7 +2,6 @@ package com.epic.score_app.viewlayer;
 
 import java.util.ArrayList;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
@@ -18,7 +17,6 @@ import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.adapters.PlayerItemAdapter;
 
-
 import domainmodel.Player;
 
 public class SpelerActivity extends Activity {
@@ -33,6 +31,11 @@ public class SpelerActivity extends Activity {
 		adapter = new PlayerItemAdapter(this, spelers);
 		spelers_list=(ListView) findViewById(R.id.lijstplayers);
 		spelers_list.setAdapter(adapter);
+//		spelers_list.setOnItemClickListener(new OnItemClickListener(){
+//		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+//			open(arg2);		
+//		}			
+//	});
 		setupActionBar();
 	}
 
@@ -75,6 +78,13 @@ public class SpelerActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
+//	private void open(int position) {
+//	
+//		Intent intent = new Intent(SpelerActivity.this, ViewPlayer.class);
+//			startActivity(intent);	
+//		}
 	
 	
 	public void loadPlayers(){
