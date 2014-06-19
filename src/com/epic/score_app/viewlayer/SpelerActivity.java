@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,6 +32,8 @@ public class SpelerActivity extends Activity {
 		adapter = new PlayerItemAdapter(this, spelers);
 		spelers_list=(ListView) findViewById(R.id.lijstplayers);
 		spelers_list.setAdapter(adapter);
+		spelers_list.setDivider(new ColorDrawable(0xff444444));
+		spelers_list.setDividerHeight(1);
 //		spelers_list.setOnItemClickListener(new OnItemClickListener(){
 //		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 //			open(arg2);		
