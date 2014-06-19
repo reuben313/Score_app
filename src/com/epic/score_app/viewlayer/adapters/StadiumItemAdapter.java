@@ -12,30 +12,30 @@ import android.widget.TextView;
 
 import com.epic.score_app.view.R;
 
-import domainmodel.Team;
+import domainmodel.Stadium;
 
-public class TeamItemAdapter extends ArrayAdapter<Team>{
+public class StadiumItemAdapter extends ArrayAdapter<Stadium> {
 	private final Activity context;
-	private List<Team>   list;
+	private List<Stadium> list;
 
-	public TeamItemAdapter (Activity context, List<Team> lis) {
+	public StadiumItemAdapter(Activity context, ArrayList<Stadium> lis) {
 		super(context, R.layout.view_player_item, lis);
 		this.context = context;
 		this.list = lis; 
 	}
-
+	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view= null;
 		LayoutInflater inflator = context.getLayoutInflater();
-		view = inflator.inflate(R.layout.team_player_item, null);
-		Team t = list.get(position);
-		TextView name = (TextView) view.findViewById(R.id.label_teamitem_name);
-		name.setText(t.getName());
+		view = inflator.inflate(R.layout.stadium_item, null);
+		Stadium s = list.get(position);
+		TextView name = (TextView) view.findViewById(R.id.label_stadiumitem_name);
+		name.setText(s.getName());
 		return view;
 	}
-
-	public void refresh(ArrayList<Team> array) {
+	
+	public void refresh(ArrayList<Stadium> array) {
 		list.addAll(array);
 		this.notifyDataSetChanged();
 	}

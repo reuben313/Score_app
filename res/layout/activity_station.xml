@@ -11,9 +11,9 @@
     android:scaleType="fitCenter"
     tools:context=".StadionActivity" >
 
-    <TextView
+    <ListView
+        android:id="@+id/lijststadion"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test scherm" />
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
