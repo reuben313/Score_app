@@ -113,3 +113,77 @@ public class SpelerActivity extends Activity {
 	};	
 
 }
+
+
+
+/*
+ * private  OnScrollListener onScrollistener= new OnScrollListener() {
+
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem,
+					int visibleItemCount, int totalItemCount) {
+				  if (listOfPlayers.getAdapter() == null)
+				        return ;
+
+				    if (listOfPlayers.getAdapter().getCount() == 0)
+				        return ;
+
+				    int l = visibleItemCount + firstVisibleItem;
+				    if (l >= totalItemCount) {
+
+				      loadNextPlayers();
+
+				    }
+
+
+			}
+
+
+		};
+
+
+
+
+		private void loadNextPlayers() {
+			Bundle b = new Bundle();
+			b.putInt("requestcode", ServiceProvider.getPlayers);
+			b.putInt("limit", 20);
+			b.putInt("offset", offset);
+			Log.i("VIEWPLAYERACTIVTY", "OFFSET:"+offset);
+			begin= System.currentTimeMillis();
+			ServiceProvider.getInsance().getData(b,handler);
+
+		}
+
+
+		private OnItemClickListener onplayerClick= new OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+					long arg3) {
+
+				Player selectedPlayer= adapter.getItem(pos);
+				Intent intent = new Intent(ViewPlayersActivity.this,ViewPlayer.class);
+				Bundle b = new Bundle();
+				b.putParcelable("player", selectedPlayer);
+				intent.putExtras(b);
+
+				startActivity(intent);
+
+
+
+
+			}
+
+
+		};
+ * 
+ * 
+ * 
+ * */
