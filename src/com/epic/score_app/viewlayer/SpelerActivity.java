@@ -31,6 +31,7 @@ public class SpelerActivity extends Activity {
 	private ArrayList<Player> spelers= new ArrayList<Player>();
 	private PlayerItemAdapter adapter;
 	private ListView spelers_list;
+	private int offset=0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -146,13 +147,14 @@ public class SpelerActivity extends Activity {
 
 
 
+
 		private void loadNextPlayers() {
 			Bundle b = new Bundle();
 			b.putInt("requestcode", ServiceProvider.getPlayers);
 			b.putInt("limit", 20);
 			b.putInt("offset", offset);
 			Log.i("VIEWPLAYERACTIVTY", "OFFSET:"+offset);
-			begin= System.currentTimeMillis();
+			
 			ServiceProvider.getInsance().getData(b,playershandler);
 
 		}
