@@ -18,6 +18,7 @@ import domainmodel.Group;
 import domainmodel.Match;
 import domainmodel.News;
 import domainmodel.Player;
+import domainmodel.Staduim;
 import domainmodel.Team;
 import domainmodel.Wallof;
 
@@ -157,6 +158,16 @@ public void testUpdate_w(){
 	
 	
 	
+}
+
+
+public void testGetStaduims()
+{
+	GlobalGateway gateway = new GlobalGateway(null);
+	ArrayList<Staduim> staduims = new ArrayList<Staduim>();
+	
+
+
 }
 
 
