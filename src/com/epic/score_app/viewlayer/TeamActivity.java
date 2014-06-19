@@ -3,6 +3,7 @@ package com.epic.score_app.viewlayer;
 import java.util.ArrayList;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
+import com.epic.score_app.serviceslayer.image.ImageService;
 import com.epic.score_app.view.R;
 import com.epic.score_app.view.R.id;
 import com.epic.score_app.view.R.layout;
@@ -19,6 +20,7 @@ import android.os.Message;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 
@@ -26,6 +28,7 @@ public class TeamActivity extends Activity {
 	private ArrayList<Team> teams= new ArrayList<Team>();
 	private TeamItemAdapter adapter;
 	private ListView teams_list;
+	private ImageView flag;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,11 @@ public class TeamActivity extends Activity {
 		teams_list.setAdapter(adapter);
 		teams_list.setDivider(new ColorDrawable(0xff444444));
 		teams_list.setDividerHeight(1);
+		
+		//flaggen
+		flag=(ImageView) findViewById(R.id.image_player);
+		ServiceProvider.getInsance().getImageFromUrl("http://www.activityvillage.co.uk/sites/default/files/images/argentina_flag_printables_av2.jpg", flag);
+		
 		setupActionBar();
 	}
 
