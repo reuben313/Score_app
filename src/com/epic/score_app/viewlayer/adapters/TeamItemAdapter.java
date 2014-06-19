@@ -35,14 +35,8 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 		Team t = list.get(position);
 		TextView name = (TextView) view.findViewById(R.id.label_teamitem_name);
 		name.setText(t.getName());
-        
-	    ImageView flag=(ImageView) view.findViewById(R.id.image_player);
-		
-	
-		ServiceProvider.getInsance().getImageFromUrl("https://lh3.ggpht.com/awFplteC-a5YwV0vNAhbnypE8rR4WffRiyM5kgzOyKgM1cDQyttyhAp0fenJ4PO73no=w300", flag);
-		
-		
-		
+        ImageView flag=(ImageView) view.findViewById(R.id.image_player);
+		ServiceProvider.getInsance().getImageFromUrl("http://www.activityvillage.co.uk/sites/default/files/images/argentina_flag_printables_av2.jpg", flag);
 		return view;
 	}
 
