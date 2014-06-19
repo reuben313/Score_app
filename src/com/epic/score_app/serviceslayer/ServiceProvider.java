@@ -1,11 +1,15 @@
 package com.epic.score_app.serviceslayer;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ImageView;
 
+import com.epic.score_app.serviceslayer.image.ImageService;
 import com.epic.score_app.serviceslayer.interfaces.IServiceProvider;
 import com.epic.score_app.serviceslayer.league.LeagueService;
 import com.epic.score_app.serviceslayer.team.TeamService;
+import com.epic.score_app.view.R;
 
 public class ServiceProvider implements IServiceProvider {
     public static final String Host="http://scoreapp.freeiz.com";
@@ -40,11 +44,15 @@ public class ServiceProvider implements IServiceProvider {
 	public static final int getWallOf = 10;
 	public static final int getWallOf_response = 1010;
 	
+	public static final int getImage= 11;
+	public static final int getImage_response = 1111;
+	
 	
 	
 	private TeamService teamservice= null;
     private LeagueService leagueservice= null;
     private GlobalService globalService=null;
+    private ImageService imageservice = null;
 
 	
 	
@@ -129,6 +137,12 @@ public class ServiceProvider implements IServiceProvider {
   	  globalService.setHandler(handler);
   	  globalService.execute(b);
   	break;
+  	
+    case getImage:
+    	  imageservice = new ImageService();
+    	  imageservice.setHandler(handler);
+    	  imageservice.execute(b);
+    	break;
 	
 	
 	
@@ -137,6 +151,34 @@ public class ServiceProvider implements IServiceProvider {
 		break;
 	}
 		
+	}
+	
+	
+	public void getImageFromUrl(String link, final ImageView image)
+	{
+		
+		
+		
+		
+		 Handler handler = new Handler(){
+			public void handleMessage(android.os.Message msg) {
+				if (msg.what==ServiceProvider.getImage_response) {
+					
+					Bitmap b= (Bitmap) msg.obj;
+				
+					image.setImageBitmap(b);
+					
+				}
+				
+			};
+			
+		};
+		
+		  imageservice = new ImageService();
+	  	  imageservice.setHandler(handler);
+	  	  Bundle b = new Bundle();
+	  	  b.putString("link", link);
+	  	  imageservice.execute(b);
 	}
 	
 	

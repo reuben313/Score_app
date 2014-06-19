@@ -2,6 +2,7 @@ package com.epic.score_app.viewlayer;
 
 
 
+import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.view.R.id;
 import com.epic.score_app.view.R.layout;
@@ -9,12 +10,15 @@ import com.epic.score_app.view.R.layout;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
@@ -98,6 +102,13 @@ public class MainActivity extends Activity {
 	
 
 	}
+	
+	@Override
+	protected void onStart() {
+		
+		super.onStart();
+		
+	}
 
 //	is niet nodig omdat er een instellingen knop is, staat ook niet mooi.
 //	@Override
@@ -106,5 +117,7 @@ public class MainActivity extends Activity {
 //		getMenuInflater().inflate(R.menu.main, menu);
 //		return true;
 //	}
+	
+	
 
 }
