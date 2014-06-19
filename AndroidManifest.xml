@@ -97,6 +97,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
+        <activity
+            android:name="com.epic.score_app.viewlayer.StadionActivity"
+            android:label="@string/title_activity_station"
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epic.score_app.viewlayer.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@
     <string name="title_activity_nieuws">Nieuws overzicht</string>
     <string name="title_activity_wedstrijden">Wedstrijden</string>
     <string name="title_activity_media">Media overzicht</string>
+    <string name="title_activity_station">Stations Overzicht</string>
     
     <string name="title_activity_view_player">ViewPlayerActivity</string>
     <string name="title_activity_temp_view_players">TempViewPlayers</string>
@@ -37,5 +38,4 @@
         <item>Italië</item>
         <item>Kameroen</item>
     </string-array>
-
 </resources>

@@ -80,6 +80,13 @@ public class MainActivity extends Activity {
 			}			
 		});
 		
+		stadions.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, StadionActivity.class);
+				startActivity(i);		
+			}			
+		});
+		
 		settings.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				Intent i = new Intent(MainActivity.this, SettingsActivity.class);
