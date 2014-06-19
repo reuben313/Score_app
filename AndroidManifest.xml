@@ -86,7 +86,7 @@
         </service>
 
         <activity
-            android:name="com.epic.score_app.view.ViewPlayer"
+            android:name="com.epic.score_app.viewlayer.ViewPlayer"
             android:label="@string/title_activity_view_player" >
         </activity>
         <activity

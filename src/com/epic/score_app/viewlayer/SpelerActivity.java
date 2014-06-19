@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.os.Message;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
@@ -34,11 +38,11 @@ public class SpelerActivity extends Activity {
 		spelers_list.setAdapter(adapter);
 		spelers_list.setDivider(new ColorDrawable(0xff444444));
 		spelers_list.setDividerHeight(1);
-//		spelers_list.setOnItemClickListener(new OnItemClickListener(){
-//		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-//			open(arg2);		
-//		}			
-//	});
+        spelers_list.setOnItemClickListener(new OnItemClickListener(){
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+			open(arg2);		
+		}			
+	});
 		setupActionBar();
 	}
 
@@ -83,17 +87,18 @@ public class SpelerActivity extends Activity {
 	}
 	
 	
-//	private void open(int position) {
-//	
-//		Intent intent = new Intent(SpelerActivity.this, ViewPlayer.class);
-//			startActivity(intent);	
-//		}
+	private void open(int position) {
+		
+	    
+		Intent intent = new Intent(SpelerActivity.this, ViewPlayer.class);
+			startActivity(intent);	
+		}
 	
 	
 	public void loadPlayers(){
 		Bundle b = new Bundle();
 		b.putInt("requestcode", ServiceProvider.getPlayers);
-		b.putInt("limit", 0);
+		b.putInt("limit", 500);
 		b.putInt("offset", 0);
 		ServiceProvider.getInsance().getData(b, playershandler);
 	}
