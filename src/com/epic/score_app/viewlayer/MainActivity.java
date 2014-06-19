@@ -107,6 +107,8 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		
 		super.onStart();
+		ImageView view = (ImageView)findViewById(R.id.imageView1);
+		//ServiceProvider.getInsance().getImageFromUrl("http://cdn-www.xda-developers.com/wp-content/uploads/2012/04/Google_Android.png", view);
 		
 	}
 

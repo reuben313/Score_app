@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -40,9 +41,8 @@ public class TeamActivity extends Activity {
 		teams_list.setDivider(new ColorDrawable(0xff444444));
 		teams_list.setDividerHeight(1);
 		
-		//flaggen
-		flag=(ImageView) findViewById(R.id.image_player);
-		ServiceProvider.getInsance().getImageFromUrl("http://www.activityvillage.co.uk/sites/default/files/images/argentina_flag_printables_av2.jpg", flag);
+	
+		
 		
 		setupActionBar();
 	}

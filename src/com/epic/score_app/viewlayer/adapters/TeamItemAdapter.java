@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 
 import domainmodel.Team;
@@ -32,6 +35,14 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 		Team t = list.get(position);
 		TextView name = (TextView) view.findViewById(R.id.label_teamitem_name);
 		name.setText(t.getName());
+        
+	    ImageView flag=(ImageView) view.findViewById(R.id.image_player);
+		
+	
+		ServiceProvider.getInsance().getImageFromUrl("https://lh3.ggpht.com/awFplteC-a5YwV0vNAhbnypE8rR4WffRiyM5kgzOyKgM1cDQyttyhAp0fenJ4PO73no=w300", flag);
+		
+		
+		
 		return view;
 	}
 
