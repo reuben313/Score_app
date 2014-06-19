@@ -4,14 +4,21 @@ import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
@@ -34,11 +41,6 @@ public class SpelerActivity extends Activity {
 		spelers_list.setAdapter(adapter);
 		spelers_list.setDivider(new ColorDrawable(0xff444444));
 		spelers_list.setDividerHeight(1);
-//		spelers_list.setOnItemClickListener(new OnItemClickListener(){
-//		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-//			open(arg2);		
-//		}			
-//	});
 		setupActionBar();
 	}
 
@@ -82,12 +84,7 @@ public class SpelerActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	
-//	private void open(int position) {
-//	
-//		Intent intent = new Intent(SpelerActivity.this, ViewPlayer.class);
-//			startActivity(intent);	
-//		}
+
 	
 	
 	public void loadPlayers(){
@@ -112,12 +109,11 @@ public class SpelerActivity extends Activity {
 		}
 	};	
 
-}
 
 
 
-/*
- * private  OnScrollListener onScrollistener= new OnScrollListener() {
+
+ private  OnScrollListener onScrollistener= new OnScrollListener() {
 
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -128,10 +124,10 @@ public class SpelerActivity extends Activity {
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 					int visibleItemCount, int totalItemCount) {
-				  if (listOfPlayers.getAdapter() == null)
+				  if (spelers_list.getAdapter() == null)
 				        return ;
 
-				    if (listOfPlayers.getAdapter().getCount() == 0)
+				    if (spelers_list.getAdapter().getCount() == 0)
 				        return ;
 
 				    int l = visibleItemCount + firstVisibleItem;
@@ -157,7 +153,7 @@ public class SpelerActivity extends Activity {
 			b.putInt("offset", offset);
 			Log.i("VIEWPLAYERACTIVTY", "OFFSET:"+offset);
 			begin= System.currentTimeMillis();
-			ServiceProvider.getInsance().getData(b,handler);
+			ServiceProvider.getInsance().getData(b,playershandler);
 
 		}
 
@@ -169,7 +165,7 @@ public class SpelerActivity extends Activity {
 					long arg3) {
 
 				Player selectedPlayer= adapter.getItem(pos);
-				Intent intent = new Intent(ViewPlayersActivity.this,ViewPlayer.class);
+				Intent intent = new Intent(SpelerActivity.this,ViewPlayer.class);
 				Bundle b = new Bundle();
 				b.putParcelable("player", selectedPlayer);
 				intent.putExtras(b);
@@ -183,7 +179,5 @@ public class SpelerActivity extends Activity {
 
 
 		};
- * 
- * 
- * 
- * */
+}
+		
