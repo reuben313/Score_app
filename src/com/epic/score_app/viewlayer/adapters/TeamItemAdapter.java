@@ -36,9 +36,9 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 		TextView name = (TextView) view.findViewById(R.id.label_teamitem_name);
 		name.setText(t.getName());
         ImageView flag=(ImageView) view.findViewById(R.id.image_player);
-		ServiceProvider.getInsance().getImageFromUrl("http://www.activityvillage.co.uk/sites/default/files/images/"+t.getName().toLowerCase().toString()+"_flag_printables_av2.jpg", flag);
-		//http://www.activityvillage.co.uk/world-cup-for-kids
-		return view;
+		ServiceProvider.getInsance().getImageFromUrl("http://scoreapp.freeiz.com/img/"+t.getName()+".png", flag);
+        
+        return view;
 	}
 
 	public void refresh(ArrayList<Team> array) {
