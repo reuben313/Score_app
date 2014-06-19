@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 @SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
-	private ImageButton teams, spelers, wedstrijden, poule, nieuws, stadions, settings;
+	private ImageButton teams, spelers, wedstrijden, poule, nieuws, media, stadions, settings;
 
 	
 	@Override
@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 		wedstrijden = (ImageButton) findViewById(R.id.Button03);
 		poule = (ImageButton) findViewById(R.id.Button04);
 		nieuws = (ImageButton) findViewById(R.id.Button05);
+		media = (ImageButton) findViewById(R.id.Button06);
 		stadions = (ImageButton) findViewById(R.id.Button07);
 		settings = (ImageButton) findViewById(R.id.Button08);
 	
@@ -68,6 +69,13 @@ public class MainActivity extends Activity {
 		nieuws.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 				Intent i = new Intent(MainActivity.this, NieuwsActivity.class);
+				startActivity(i);		
+			}			
+		});
+		
+		media.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, MediaActivity.class);
 				startActivity(i);		
 			}			
 		});
