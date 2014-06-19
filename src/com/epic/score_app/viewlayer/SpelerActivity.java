@@ -42,6 +42,8 @@ public class SpelerActivity extends Activity {
 		spelers_list.setAdapter(adapter);
 		spelers_list.setDivider(new ColorDrawable(0xff444444));
 		spelers_list.setDividerHeight(1);
+		spelers_list.setOnScrollListener(onScrollistener);
+		spelers_list.setOnItemClickListener(onplayerClick);
 		setupActionBar();
 	}
 
@@ -91,7 +93,7 @@ public class SpelerActivity extends Activity {
 	public void loadPlayers(){
 		Bundle b = new Bundle();
 		b.putInt("requestcode", ServiceProvider.getPlayers);
-		b.putInt("limit", 0);
+		b.putInt("limit", 20);
 		b.putInt("offset", 0);
 		ServiceProvider.getInsance().getData(b, playershandler);
 	}
