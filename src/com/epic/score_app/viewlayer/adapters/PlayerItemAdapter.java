@@ -41,10 +41,11 @@ public class PlayerItemAdapter extends ArrayAdapter<Player>{
     		TextView name = (TextView) view.findViewById(R.id.label_playeritem_name);
     		TextView lastname = (TextView) view.findViewById(R.id.label_playeritem_lastname);
     		TextView nationality = (TextView) view.findViewById(R.id.label_playeritem_nationality);
+    		
             name.setText(p.getName());
             lastname.setText(p.getLastname());
     		nationality.setText(p.getNationality());
-    		
+    	   		
     	
     		 
     		 
