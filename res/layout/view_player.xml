@@ -25,7 +25,7 @@
         android:layout_below="@+id/pasfoto"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="voornaam"
+        
          />
     
      <TextView
@@ -35,7 +35,7 @@
         android:layout_below="@+id/voornaam"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="achternaam"
+        
          />
      
       <TextView
@@ -45,7 +45,7 @@
         android:layout_below="@+id/achternaam"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="nationaliteit"
+    
          />
       
             <TextView
@@ -55,7 +55,7 @@
         android:layout_below="@+id/nationality"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="leeftijd"
+     
          />
             
                   <TextView
@@ -65,7 +65,7 @@
         android:layout_below="@+id/leeftijd"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="date_of_birth"
+       
          />
                   
                    <TextView
@@ -75,7 +75,7 @@
         android:layout_below="@+id/date_of_birth"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="position"
+       
          />
                    
                        <TextView
@@ -85,7 +85,7 @@
         android:layout_below="@+id/position"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="height"
+      
          />
          
                         <TextView
@@ -95,7 +95,7 @@
         android:layout_below="@+id/height"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="weight"
+        
          />
                         
                           <TextView
@@ -105,7 +105,7 @@
         android:layout_below="@+id/weight"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="foot"
+        
          />
                   
 

@@ -30,10 +30,6 @@ public class ViewPlayer extends ActionBarActivity {
 		voornaam = (TextView) findViewById(R.id.voornaam);
 		achternaam = (TextView) findViewById(R.id.achternaam);
 		nationaliteit = (TextView) findViewById(R.id.nationality);
-		voornaam.setText(player.getName());
-		achternaam.setText(player.getLastname());
-		nationaliteit.setText(player.getNationality());
-		
 		leeftijd = (TextView) findViewById(R.id.leeftijd);
 		geboortedatum = (TextView) findViewById(R.id.date_of_birth);
 		positie = (TextView) findViewById(R.id.position);
@@ -41,21 +37,7 @@ public class ViewPlayer extends ActionBarActivity {
 		weight = (TextView) findViewById(R.id.weight);
 		foot = (TextView) findViewById(R.id.foot);
 		
-		voornaam.setText(player.getName());
-		achternaam.setText(player.getLastname());
-		nationaliteit.setText(player.getNationality());
-		leeftijd.setText(player.getAge());
-		geboortedatum.setText(player.getDateOfbirth());
-		positie.setText(player.getPosition());
-		height.setText(player.getHeight());
-		weight.setText(player.getWeight());
-		foot.setText(player.getFoot());
-		
-				
-		
-		
 
-	
 		
 	}
 	
@@ -100,25 +82,65 @@ public class ViewPlayer extends ActionBarActivity {
 			case ServiceProvider.getLazyPlayer_response:
 			
 				Player temp = (Player) msg.obj;
+				
+				vn = player.getName();
+				an = player.getLastname();
+				nat = player.getNationality();
 				lf=temp.getAge();
 				gb=temp.getDateOfbirth();
 				ft=temp.getFoot();
 				hg=temp.getHeight();
 				wg=temp.getWeight();
-			
+				if(wg == "null"){
+					wg = "GEEN GEWICHT BEKEND";
+					weight.setText(wg);
+				}else{
+				weight.setText(wg);
+			  }
 			
 				
 				ps=temp.getPosition();
 
-			
-			
+			    if(vn == "null"){
+			    	voornaam.setText("GEEN VOORNAAM BEKEND");
+			    	}else{
+				voornaam.setText(vn);
+			    	}
+			    if(an == "null"){
+			    	achternaam.setText("ACHTERNAAM NIET BEKEND");
+			    }else{
+				achternaam.setText(an);
+			    }
+			    if(nat == "null"){
+			    	nationaliteit.setText("NATIONALITEIT NIET BEKEND");
+			    }else {
+				nationaliteit.setText(nat);
+			    }
+			    if(lf == "null"){
+			    	leeftijd.setText("LEEFTIJD NIET BEKEND");
+			    }else{
 				leeftijd.setText(lf);
+			    }
+			    if(gb == "null"){
+			    	geboortedatum.setText("GEBOORTEDATUM NIET BEKEND");
+			    }else{
 				geboortedatum.setText(gb);
+			    }
+			    if(ps == "null"){
+			    	positie.setText("POSITIE NIET BEKEND");
+			    }else{
 				positie.setText(ps);
+			    }
+			    if(hg == "null"){
+			    	height.setText("LENGTE NIET BEKEND");
+			    }else{
 				height.setText(hg);
-				weight.setText(wg);
+			    }
+				if(ft == "null"){
+					foot.setText("NIET BEKEND");
+				}else{
 				foot.setText(ft);
-				
+				}
 
 		//hier moet je de andere atributen can de speler toevoegrn
 				
