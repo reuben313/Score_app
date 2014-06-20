@@ -177,9 +177,6 @@ public class SpelerActivity extends Activity {
 
 				startActivity(intent);
 
-
-
-
 			}
 
 
