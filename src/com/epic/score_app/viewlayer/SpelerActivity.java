@@ -1,6 +1,8 @@
 package com.epic.score_app.viewlayer;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -103,7 +105,9 @@ public class SpelerActivity extends Activity {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case ServiceProvider.getPlayers_response:
+				
 				spelers= (ArrayList<Player>) msg.obj;
+				
 				adapter.addAll(spelers);
 				offset+=20;
 				break;
