@@ -95,7 +95,7 @@ public class ViewPlayer extends ActionBarActivity {
 		public void handleMessage(Message msg) {
 			 switch (msg.what) {
 			case ServiceProvider.getLazyPlayer_response:
-				Toast.makeText(ViewPlayer.this, "response recieved", Toast.LENGTH_LONG).show();
+			
 				Player temp = (Player) msg.obj;
 				
 				
