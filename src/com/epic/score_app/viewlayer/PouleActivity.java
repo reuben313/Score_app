@@ -12,15 +12,13 @@ import android.os.Message;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ExpandableListView;
+import android.widget.ListView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
-import com.epic.score_app.viewlayer.adapters.PlayerItemAdapter;
 import com.epic.score_app.viewlayer.adapters.PouleAdapter;
 
 import domainmodel.Group;
-import domainmodel.Player;
 
 public class PouleActivity extends Activity {
 	private ArrayList<Group> poule= new ArrayList<Group>();
@@ -32,7 +30,7 @@ public class PouleActivity extends Activity {
 		// Show the Up button in the action bar.
 		
 		adapter = new PouleAdapter(this, poule);
-		ExpandableListView list = (ExpandableListView)findViewById(R.id.expandableListView1);
+		ListView list = (ListView)findViewById(R.id.ListView1);
 		list.setAdapter(adapter);
 		list.setDivider(new ColorDrawable(0xff444444));
 		list.setDividerHeight(1);
