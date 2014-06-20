@@ -4,17 +4,24 @@ import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
+import com.epic.score_app.view.ViewTeam;
 import com.epic.score_app.viewlayer.adapters.TeamItemAdapter;
 
+import domainmodel.Player;
 import domainmodel.Team;
 
 
@@ -33,6 +40,8 @@ public class TeamActivity extends Activity {
 		teams_list.setAdapter(adapter);
 		teams_list.setDivider(new ColorDrawable(0xff444444));
 		teams_list.setDividerHeight(1);
+		teams_list.setOnItemClickListener(onteamClick);
+		setupActionBar();
 		
 	
 		
@@ -100,5 +109,27 @@ public class TeamActivity extends Activity {
 				break;
 			}
 		}
-	};	
+	};
+	private OnItemClickListener onteamClick= new OnItemClickListener(){
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+				long arg3) {
+
+			Team selectedTeam= adapter.getItem(pos);
+			Log.i("selected team id", selectedTeam.getTeamId()+"");
+			Intent intent = new Intent(TeamActivity.this,ViewTeam.class);
+			Bundle b = new Bundle();
+			//hotfix
+			b.putSerializable("team", selectedTeam);
+			//b.putParcelable("player", selectedPlayer);
+			intent.putExtras(b);
+
+			startActivity(intent);
+
+		}
+
+
+	};
+	
 }
