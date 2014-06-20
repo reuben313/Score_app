@@ -51,6 +51,9 @@ public class ServiceProvider implements IServiceProvider {
 
 	public static final int getImage= 11;
 	public static final int getImage_response = 1111;
+	
+	public static final int getStadiums= 12;
+	public static final int getStadiums_response = 1212;
 
 
 
@@ -137,6 +140,14 @@ public class ServiceProvider implements IServiceProvider {
 			globalService = new GlobalService();
 			globalService.setHandler(handler);
 			globalService.execute(b);
+			break;
+			
+			
+			
+		case getStadiums:
+			leagueservice = new LeagueService();
+			leagueservice.setHandler(handler);
+			leagueservice.execute(b);
 			break;
 
 			//moet nog gefixed worden

@@ -11,6 +11,7 @@ import com.epic.score_app.serviceslayer.ServiceProvider;
 
 import domainmodel.Group;
 import domainmodel.Match;
+import domainmodel.Stadium;
 
 
 
@@ -44,6 +45,22 @@ public class LeagueService extends RequestService{
 				msggroup.what= ServiceProvider.getGroup_response;
 				msggroup.obj=groups;
 				handler.sendMessage(msggroup);
+				
+				
+			break;
+			
+			case ServiceProvider.getStadiums:
+				 compid=receivedBundle.getInt("compid");
+				
+				ArrayList<Stadium> staduims = new ArrayList<Stadium>();
+				Stadium sta = new Stadium();
+				sta.setName("Sheik Ali staduim");
+				
+				
+				Message msgstaduims = new Message();
+				msgstaduims.what= ServiceProvider.getStadiums_response;
+				msgstaduims.obj=staduims;
+				handler.sendMessage(msgstaduims);
 				
 				
 			break;
