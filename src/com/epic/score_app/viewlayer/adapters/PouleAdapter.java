@@ -74,25 +74,39 @@ public class PouleAdapter extends ArrayAdapter<Group> {
 		team3.setText(teams.get(2).getName());
 		team4.setText(teams.get(3).getName());
 		
-		Team t = teams.get(position);
-		 Tuple<Team, ImageView> teamTuple1 = new Tuple<Team, ImageView>(t, vlag1);
-		 Tuple<Team, ImageView> teamTuple2 = new Tuple<Team, ImageView>(t, vlag2);
-		 Tuple<Team, ImageView> teamTuple3 = new Tuple<Team, ImageView>(t, vlag3);
-		 Tuple<Team, ImageView> teamTuple4 = new Tuple<Team, ImageView>(t, vlag4);
-			String link =chekifnotvalid(t);
+		Team t1 = teams.get(0);
+		Team t2 = teams.get(1);
+		Team t3 = teams.get(2);
+		Team t4 = teams.get(3);
+		
+		 Tuple<Team, ImageView> teamTuple1 = new Tuple<Team, ImageView>(t1, vlag1);
+		 Tuple<Team, ImageView> teamTuple2 = new Tuple<Team, ImageView>(t2, vlag2);
+		 Tuple<Team, ImageView> teamTuple3 = new Tuple<Team, ImageView>(t3, vlag3);
+		 Tuple<Team, ImageView> teamTuple4 = new Tuple<Team, ImageView>(t4, vlag4);
+		String link1 =chekifnotvalid(t1);
+		String link2 =chekifnotvalid(t2);
+		String link3 =chekifnotvalid(t3);
+		String link4 =chekifnotvalid(t4);
 			
-			  Bitmap bitmap = getBitmapFromMemCache("flag_"+t.getName()+".png");
-		        if (bitmap==null) {
-		        	 ServiceProvider.getInsance().getImageFromUrl(link,mMemoryCache, teamTuple1);
-		        	 ServiceProvider.getInsance().getImageFromUrl(link,mMemoryCache, teamTuple2);
-		        	 ServiceProvider.getInsance().getImageFromUrl(link,mMemoryCache, teamTuple3);
-		        	 ServiceProvider.getInsance().getImageFromUrl(link,mMemoryCache, teamTuple4);
+			  Bitmap bitmap1 = getBitmapFromMemCache("flag_"+t1.getName()+".png");
+			  Bitmap bitmap2 = getBitmapFromMemCache("flag_"+t2.getName()+".png");
+			  Bitmap bitmap3 = getBitmapFromMemCache("flag_"+t3.getName()+".png");
+			  Bitmap bitmap4 = getBitmapFromMemCache("flag_"+t4.getName()+".png");
+			  
+		        if (bitmap1==null) {
+		        	 ServiceProvider.getInsance().getImageFromUrl(link1,mMemoryCache, teamTuple1);
+		        } if(bitmap2==null){
+		        	 ServiceProvider.getInsance().getImageFromUrl(link2,mMemoryCache, teamTuple2);
+		        } if(bitmap3==null){
+		        	 ServiceProvider.getInsance().getImageFromUrl(link3,mMemoryCache, teamTuple3);
+		        } if(bitmap4==null){
+		        	 ServiceProvider.getInsance().getImageFromUrl(link4,mMemoryCache, teamTuple4);
 				}else{
 					
-					vlag1.setImageBitmap(bitmap);
-					vlag2.setImageBitmap(bitmap);
-					vlag3.setImageBitmap(bitmap);
-					vlag4.setImageBitmap(bitmap);
+					vlag1.setImageBitmap(bitmap1);
+					vlag2.setImageBitmap(bitmap2);
+					vlag3.setImageBitmap(bitmap3);
+					vlag4.setImageBitmap(bitmap4);
 					Log.i("getting from cash", "yes");
 				}
 		return view;
