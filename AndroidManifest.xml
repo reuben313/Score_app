@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:icon="@drawable/speler"
             android:name="com.epic.score_app.viewlayer.SpelerActivity"
             android:label="@string/title_activity_speler"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
@@ -35,6 +36,7 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
+            android:icon="@drawable/team"
             android:name="com.epic.score_app.viewlayer.TeamActivity"
             android:label="@string/title_activity_team"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
@@ -43,6 +45,7 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
+            android:icon="@drawable/poule"
             android:name="com.epic.score_app.viewlayer.PouleActivity"
             android:label="@string/title_activity_poule"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
@@ -59,6 +62,7 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
+            android:icon="@drawable/nieuws"
             android:name="com.epic.score_app.viewlayer.NieuwsActivity"
             android:label="@string/title_activity_nieuws"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
@@ -67,6 +71,7 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
+            android:icon="@drawable/wedstrijd"
             android:name="com.epic.score_app.viewlayer.WedstrijdenActivity"
             android:label="@string/title_activity_wedstrijden"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
@@ -90,6 +95,7 @@
             android:label="@string/title_activity_view_player" >
         </activity>
         <activity
+            android:icon="@drawable/media"
             android:name="com.epic.score_app.viewlayer.MediaActivity"
             android:label="@string/title_activity_media"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
