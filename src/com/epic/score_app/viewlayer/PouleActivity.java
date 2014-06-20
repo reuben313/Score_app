@@ -86,7 +86,7 @@ public class PouleActivity extends Activity {
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case ServiceProvider.getmaGroup_response:
+			case ServiceProvider.getGroup_response:
 				ArrayList<Group> poulelist = (ArrayList<Group>)msg.obj;
 				adapter.addAll(poulelist);
 				break;

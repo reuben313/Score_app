@@ -41,7 +41,7 @@ public class LeagueService extends RequestService{
 				ArrayList<Group> groups=  gateway.getGroups(compid);
 				
 				Message msggroup = new Message();
-				msggroup.what= ServiceProvider.getmatches_response;
+				msggroup.what= ServiceProvider.getGroup_response;
 				msggroup.obj=groups;
 				handler.sendMessage(msggroup);
 				

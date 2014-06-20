@@ -35,7 +35,7 @@ public class ServiceProvider implements IServiceProvider {
 	public static final int getmatches_response = 55;
 
 	public static final int getGroup = 6;
-	public static final int getmaGroup_response = 66;
+	public static final int getGroup_response = 66;
 
 	public static final int getRawQuery = 7;
 	public static final int getRawQuery_response = 77;
