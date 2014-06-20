@@ -1,3 +1,4 @@
+
 package com.epic.score_app.test;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import domainmodel.Group;
 import domainmodel.Match;
 import domainmodel.News;
 import domainmodel.Player;
-import domainmodel.Staduim;
+import domainmodel.Stadium;
 import domainmodel.Team;
 import domainmodel.Wallof;
 
@@ -164,7 +165,7 @@ public void testUpdate_w(){
 public void testGetStaduims()
 {
 	GlobalGateway gateway = new GlobalGateway(null);
-	ArrayList<Staduim> staduims = new ArrayList<Staduim>();
+	ArrayList<Stadium> staduims = new ArrayList<Stadium>();
 	
 
 
