@@ -79,10 +79,7 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 		list.addAll(array);
 		this.notifyDataSetChanged();
 	}
-	
-	
-	
-	
+		
 	
 	public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
 	    if (getBitmapFromMemCache(key) == null) {
