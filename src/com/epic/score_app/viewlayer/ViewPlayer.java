@@ -60,7 +60,7 @@ public class ViewPlayer extends ActionBarActivity {
 		protected void onStart() {
 			Bundle b = new Bundle();
 		
-			b.putInt("requestcode", ServiceProvider.getLazyPlayer);
+			b.putInt("requestcode", ServiceProvider.getPlayer);
 			b.putLong("player_id", player.getPlayer_id());
 			ServiceProvider.getInsance().getData(b,handler);
 			
@@ -94,9 +94,10 @@ public class ViewPlayer extends ActionBarActivity {
 		
 		public void handleMessage(Message msg) {
 			 switch (msg.what) {
-			case ServiceProvider.getLazyPlayer_response:
+			case ServiceProvider.getPlayer_response:
 			
 				Player temp = (Player) msg.obj;
+				
 		//hier moet je de andere atributen can de speler toevoegrn
 				
 				break;
