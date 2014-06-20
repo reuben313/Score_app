@@ -44,6 +44,7 @@ public class StadiumActivity extends Activity {
 		}
 	}
 	
+	//service provider moet eerst gefixed worden
 //	public void loadStadions(){
 //		Bundle b = new Bundle();
 //		b.putInt("requestcode", ServiceProvider.getStadiums);
@@ -51,7 +52,7 @@ public class StadiumActivity extends Activity {
 //		b.putInt("offset", 0);
 //		ServiceProvider.getInsance().getData(b, handler);
 //	}
-	
+//	
 //	private Handler handler = new Handler(){
 //		@Override
 //		public void handleMessage(Message msg) {
