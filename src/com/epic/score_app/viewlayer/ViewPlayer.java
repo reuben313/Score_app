@@ -7,6 +7,8 @@ import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
@@ -16,6 +18,9 @@ import domainmodel.Player;
 
 public class ViewPlayer extends ActionBarActivity {
  private Player player;
+ private TextView voornaam, achternaam, nationaliteit, leeftijd, 
+ geboortedatum, positie, height, weight, foot;
+ 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,6 +28,27 @@ public class ViewPlayer extends ActionBarActivity {
 		Intent intent = getIntent();
 		Bundle b = intent.getExtras();
 		player= b.getParcelable("player");
+		voornaam = (TextView) findViewById(R.id.voornaam);
+		achternaam = (TextView) findViewById(R.id.achternaam);
+		nationaliteit = (TextView) findViewById(R.id.nationality);
+		leeftijd = (TextView) findViewById(R.id.leeftijd);
+		geboortedatum = (TextView) findViewById(R.id.date_of_birth);
+		positie = (TextView) findViewById(R.id.position);
+		height = (TextView) findViewById(R.id.height);
+		weight = (TextView) findViewById(R.id.weight);
+		foot = (TextView) findViewById(R.id.foot);
+		
+		voornaam.setText(player.getName());
+		achternaam.setText(player.getLastname());
+		nationaliteit.setText(player.getNationality());
+		leeftijd.setText(player.getAge());
+		geboortedatum.setText(player.getDateOfbirth());
+		positie.setText(player.getPosition());
+		height.setText(player.getHeight());
+		weight.setText(player.getWeight());
+		foot.setText(player.getFoot());
+		
+				
 		
 		
 

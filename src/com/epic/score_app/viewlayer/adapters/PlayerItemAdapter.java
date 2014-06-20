@@ -44,7 +44,7 @@ public class PlayerItemAdapter extends ArrayAdapter<Player>{
             name.setText(p.getName());
             lastname.setText(p.getLastname());
     		nationality.setText(p.getNationality());
-    		 
+    		
     	
     		 
     		 

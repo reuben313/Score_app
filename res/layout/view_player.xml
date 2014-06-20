@@ -2,15 +2,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:adjustViewBounds="true"
+    android:background="@drawable/grass_texture241"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:scaleType="fitCenter"
     tools:context="com.epic.score_app.ViewPlayer$PlaceholderFragment" >
 
+      <ImageView
+        android:id="@+id/pasfoto"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:gravity="center_horizontal"
+        android:src="@drawable/ronaldo" />
+    
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/voornaam"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pasfoto"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:gravity="center_horizontal"
+        android:text="voornaam"
+         />
+    
+     <TextView
+        android:id="@+id/achternaam"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/voornaam"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="achternaam"
+         />
+     
+      <TextView
+        android:id="@+id/nationality"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/achternaam"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="nationaliteit"
+         />
+      
+            <TextView
+        android:id="@+id/leeftijd"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/nationality"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="leeftijd"
+         />
+            
+                  <TextView
+        android:id="@+id/date_of_birth"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/leeftijd"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="date_of_birth"
+         />
+                  
+                   <TextView
+        android:id="@+id/position"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/date_of_birth"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="position"
+         />
+                   
+                       <TextView
+        android:id="@+id/height"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/position"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="height"
+         />
+         
+                        <TextView
+        android:id="@+id/weight"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/height"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="weight"
+         />
+                        
+                          <TextView
+        android:id="@+id/foot"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/weight"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="foot"
+         />
+                  
+
+  
 
 </RelativeLayout>

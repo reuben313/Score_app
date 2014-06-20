@@ -18,6 +18,9 @@ public class Player  implements Parcelable{
 	private String nationality;
 	private String dateOfbirth;
 	private String height;
+	private String age;
+	private String weight;
+	private String foot;
 	private String position;
 	private ArrayList<Team> attendingTeams = new ArrayList<Team>();
 	
@@ -150,6 +153,10 @@ public Player[] newArray(int arg0) {
 		this.position=position;
 		
 	}
+	
+	public String getAge(){
+		return age;
+	}
 
 
 	public void setHeight(String height) {
@@ -171,7 +178,16 @@ public Player[] newArray(int arg0) {
 	public void setAttendingTeams(ArrayList<Team> attendingTeams) {
 		this.attendingTeams = attendingTeams;
 	}
+
+
+	public String getWeight() {
+		// TODO Auto-generated method stub
+		return weight;
+	}
 	
+	public String getFoot(){
+		return foot;
+	}
 	
 }
 
