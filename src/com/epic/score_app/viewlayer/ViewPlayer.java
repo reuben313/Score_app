@@ -97,7 +97,7 @@ public class ViewPlayer extends ActionBarActivity {
 			case ServiceProvider.getLazyPlayer_response:
 			
 				Player temp = (Player) msg.obj;
-				
+		//hier moet je de andere atributen can de speler toevoegrn
 				
 				break;
 
