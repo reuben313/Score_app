@@ -21,6 +21,7 @@ public class StadiumActivity extends Activity {
 	private ArrayList<Stadium> stadiums= new ArrayList<Stadium>();
 	private StadiumItemAdapter adapter;
 	private ListView stadion_list;
+	private int offset = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,13 @@ public class StadiumActivity extends Activity {
 		stadion_list.setDividerHeight(1);
 		setupActionBar();
 	}
+	
+	@Override
+	protected void onStart() {
+		loadStadium();
+		super.onStart();
+	}
+
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
@@ -44,26 +52,27 @@ public class StadiumActivity extends Activity {
 		}
 	}
 	
-	//service provider moet eerst gefixed worden
-//	public void loadStadions(){
-//		Bundle b = new Bundle();
-//		b.putInt("requestcode", ServiceProvider.getStadiums);
-//		b.putInt("limit", 20);
-//		b.putInt("offset", 0);
-//		ServiceProvider.getInsance().getData(b, handler);
-//	}
-//	
-//	private Handler handler = new Handler(){
-//		@Override
-//		public void handleMessage(Message msg) {
-//			switch (msg.what) {
-//			case ServiceProvider.getStadiums_response:
-//				stadiums= (ArrayList<Stadium>) msg.obj;
-//				adapter.addAll(stadiums);
-//				break;
-//			default:
-//				break;
-//			}
-//		}
-//	};
+	public void loadStadium(){
+		Bundle b = new Bundle();
+		b.putInt("requestcode", ServiceProvider.getStadiums);
+		b.putInt("limit", 20);
+		b.putInt("offset", 0);
+		b.putInt("compid", 1);
+		ServiceProvider.getInsance().getData(b, stadiumhandler);
+	}
+
+	private Handler stadiumhandler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case ServiceProvider.getStadiums_response:
+				stadiums= (ArrayList<Stadium>) msg.obj;
+				adapter.addAll(stadiums);
+				offset+=20;
+				break;
+			default:
+				break;
+			}
+		}
+	};
 }
