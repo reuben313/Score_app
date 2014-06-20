@@ -1,24 +1,42 @@
 package com.epic.score_app.viewlayer;
 
-import com.epic.score_app.view.R;
-import com.epic.score_app.view.R.layout;
-import com.epic.score_app.view.R.menu;
+import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
+
+import com.epic.score_app.serviceslayer.ServiceProvider;
+import com.epic.score_app.view.R;
+import com.epic.score_app.viewlayer.adapters.PlayerItemAdapter;
+import com.epic.score_app.viewlayer.adapters.PouleAdapter;
+
+import domainmodel.Group;
+import domainmodel.Player;
 
 public class PouleActivity extends Activity {
-
+	private ArrayList<Group> poule= new ArrayList<Group>();
+	private PouleAdapter adapter;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_poule);
 		// Show the Up button in the action bar.
+		
+		adapter = new PouleAdapter(this, poule);
+		ExpandableListView list = (ExpandableListView)findViewById(R.id.expandableListView1);
+		list.setAdapter(adapter);
+		list.setDivider(new ColorDrawable(0xff444444));
+		list.setDividerHeight(1);
+		
 		setupActionBar();
 	}
 
@@ -55,5 +73,29 @@ public class PouleActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		Bundle b = new Bundle();
+		b.putInt("requestcode", ServiceProvider.getGroup); 
+		b.putInt("compid", 1);
+		ServiceProvider.getInsance().getData(b, poulehandler);
+	}
+	
+	
+	private Handler poulehandler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case ServiceProvider.getmaGroup_response:
+				ArrayList<Group> poulelist = (ArrayList<Group>)msg.obj;
+				adapter.addAll(poulelist);
+				break;
+			default:
+				break;
+			}
+		}
+	};
 
 }
