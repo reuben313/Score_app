@@ -170,9 +170,12 @@ public class SpelerActivity extends Activity {
 					long arg3) {
 
 				Player selectedPlayer= adapter.getItem(pos);
+				Log.i("selected player id", selectedPlayer.getPlayer_id()+"");
 				Intent intent = new Intent(SpelerActivity.this,ViewPlayer.class);
 				Bundle b = new Bundle();
-				b.putParcelable("player", selectedPlayer);
+				//hotfix
+				b.putSerializable("player", selectedPlayer);
+				//b.putParcelable("player", selectedPlayer);
 				intent.putExtras(b);
 
 				startActivity(intent);

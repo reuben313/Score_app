@@ -47,13 +47,14 @@ protected void executeRequest(Bundle receivedBundle) {
 			
 		case ServiceProvider.getLazyPlayer:
 			gateway = new TeamGateway(handler);
-			int playerId= receivedBundle.getInt("player_id");
+			int playerId= (int)receivedBundle.getLong("player_id");
+			Log.i("getting lazy from gateway", " with "+playerId);
 			Player player=	gateway.getLazyPlayer(playerId);
 			Message msglazyplayer = new Message();
 			msglazyplayer.what=ServiceProvider.getLazyPlayer_response;
 			 
 			msglazyplayer.obj=player;
-			Log.i("sending the data to handler ","lazyPlayer");
+			Log.i("sending the data to handler ",player.getAge());
 			handler.sendMessage(msglazyplayer);
 			
 		break;

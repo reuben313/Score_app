@@ -1,5 +1,6 @@
 package domainmodel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import android.os.Parcel;
@@ -9,7 +10,7 @@ import android.os.Parcelable;
 
 
 
-public class Player  implements Parcelable{
+public class Player  implements Parcelable, Serializable{
   
   
 	
@@ -66,6 +67,21 @@ private Integer jerseynumber;
 		
 	}
 	
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+
+	public void setFoot(String foot) {
+		this.foot = foot;
+	}
+
 
 	public String getLastname() {
 		return lastname;

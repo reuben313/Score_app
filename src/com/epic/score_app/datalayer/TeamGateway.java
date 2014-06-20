@@ -78,7 +78,9 @@ public class TeamGateway extends JsonService {
 	
 
 	public Player getLazyPlayer(int playerId) {
+		Log.i("player id", playerId+"");
 		String link = ServiceProvider.Host+"/usercomplete.php?users="+playerId;
+		                                    
 		JSONArray values = null;
 		values = GetData(link);
 	    Player player= factory.getLazyPlayer(values);

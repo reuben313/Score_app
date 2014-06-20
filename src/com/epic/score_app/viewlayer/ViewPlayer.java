@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -28,10 +29,14 @@ public class ViewPlayer extends ActionBarActivity {
 		setContentView(R.layout.view_player);
 		Intent intent = getIntent();
 		Bundle b = intent.getExtras();
-		player= b.getParcelable("player");
+		player= (Player)b.getSerializable("player");
 		voornaam = (TextView) findViewById(R.id.voornaam);
 		achternaam = (TextView) findViewById(R.id.achternaam);
 		nationaliteit = (TextView) findViewById(R.id.nationality);
+		voornaam.setText(player.getName());
+		achternaam.setText(player.getLastname());
+		nationaliteit.setText(player.getNationality());
+		
 		leeftijd = (TextView) findViewById(R.id.leeftijd);
 		geboortedatum = (TextView) findViewById(R.id.date_of_birth);
 		positie = (TextView) findViewById(R.id.position);
@@ -52,7 +57,7 @@ public class ViewPlayer extends ActionBarActivity {
 		protected void onStart() {
 			Bundle b = new Bundle();
 		
-			b.putInt("requestcode", ServiceProvider.getPlayer);
+			b.putInt("requestcode", ServiceProvider.getLazyPlayer);
 			b.putLong("player_id", player.getPlayer_id());
 			ServiceProvider.getInsance().getData(b,handler);
 			
@@ -86,7 +91,7 @@ public class ViewPlayer extends ActionBarActivity {
 		
 		public void handleMessage(Message msg) {
 			 switch (msg.what) {
-			case ServiceProvider.getPlayer_response:
+			case ServiceProvider.getLazyPlayer_response:
 			
 				Player temp = (Player) msg.obj;
 				lf=temp.getAge();
@@ -94,19 +99,19 @@ public class ViewPlayer extends ActionBarActivity {
 				ft=temp.getFoot();
 				hg=temp.getHeight();
 				wg=temp.getWeight();
-				nat=temp.getNationality();
-				vn=temp.getName();
-				an=temp.getLastname();
+			
+			
+				
 				ps=temp.getPosition();
-				voornaam.setText(vn);
-				achternaam.setText(an);
-				nationaliteit.setText(nat);
-				leeftijd.setText(lf);
+			
+			
+				leeftijd.setText(temp.getAge());
 				geboortedatum.setText(gb);
 				positie.setText(ps);
 				height.setText(hg);
 				weight.setText(wg);
 				foot.setText(ft);
+				Log.i("speler lazy succes", temp.getFoot());
 		//hier moet je de andere atributen can de speler toevoegrn
 				
 				break;

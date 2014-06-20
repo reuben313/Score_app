@@ -97,12 +97,20 @@ public class EntityFactory {
 			String dateofbirth= pl.getString("DATE_OF_BIRTH");
 			String position= pl.getString("POSITION");
 			String height=pl.getString("HEIGHT");
+			String age=pl.getString("AGE");
+			String foot = pl.getString("FOOT");
+			String weight= pl.getString("WEIGHT");
+			
 			
 		
 		
 		player.setDateOfbirth(dateofbirth);
 		player.setPosition(position);
 		player.setHeight(height);
+		player.setAge(age);
+		player.setFoot(foot);
+		player.setWeight(weight);
+		
 		
 		
 			
