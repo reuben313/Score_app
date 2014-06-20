@@ -91,7 +91,7 @@ public class SpelerActivity extends Activity {
 	public void loadPlayers(){
 		Bundle b = new Bundle();
 		b.putInt("requestcode", ServiceProvider.getPlayers);
-		b.putInt("limit", 0);
+		b.putInt("limit", 20);
 		b.putInt("offset", 0);
 		ServiceProvider.getInsance().getData(b, playershandler);
 	}
@@ -103,6 +103,7 @@ public class SpelerActivity extends Activity {
 			case ServiceProvider.getPlayers_response:
 				spelers= (ArrayList<Player>) msg.obj;
 				adapter.addAll(spelers);
+				offset+=20;
 				break;
 			default:
 				break;

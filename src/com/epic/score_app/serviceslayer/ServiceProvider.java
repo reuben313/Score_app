@@ -1,8 +1,11 @@
 package com.epic.score_app.serviceslayer;
 
+import Utils.Tuple;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.LruCache;
 import android.widget.ImageView;
 
 import com.epic.score_app.serviceslayer.image.ImageService;
@@ -10,6 +13,8 @@ import com.epic.score_app.serviceslayer.interfaces.IServiceProvider;
 import com.epic.score_app.serviceslayer.league.LeagueService;
 import com.epic.score_app.serviceslayer.team.TeamService;
 import com.epic.score_app.view.R;
+
+import domainmodel.Team;
 
 public class ServiceProvider implements IServiceProvider {
     public static final String Host="http://scoreapp.freeiz.com";
@@ -138,11 +143,7 @@ public class ServiceProvider implements IServiceProvider {
   	  globalService.execute(b);
   	break;
   	
-    case getImage:
-    	  imageservice = new ImageService();
-    	  imageservice.setHandler(handler);
-    	  imageservice.execute(b);
-    	break;
+    
 	
 	
 	
@@ -173,12 +174,48 @@ public class ServiceProvider implements IServiceProvider {
 			};
 			
 		};
-		
+		/*
 		  imageservice = new ImageService();
 	  	  imageservice.setHandler(handler);
 	  	  Bundle b = new Bundle();
 	  	  b.putString("link", link);
 	  	  imageservice.execute(b);
+	*/
+	}
+
+
+
+
+
+	public void getImageFromUrl(final String link,
+			final LruCache<String, Bitmap> mMemoryCache, final Tuple<Team, ImageView> teamTuple) {
+
+		 Handler handler = new Handler(){
+			public void handleMessage(android.os.Message msg) {
+				if (msg.what==ServiceProvider.getImage_response) {
+					
+					Bitmap b= (Bitmap) msg.obj;
+                    if(b!=null){
+					teamTuple.getSecond().setImageBitmap(b);
+					try{
+					mMemoryCache.put("flag_"+teamTuple.getFirst().getName().toLowerCase()+".png", b);
+					}catch(NullPointerException exe){}
+					
+				}
+				}   
+				
+			};
+			
+		};
+		Context c = teamTuple.getSecond().getContext();
+		
+		imageservice = new ImageService(c);
+	  	  imageservice.setHandler(handler);
+	  	  
+	  	  
+	  	  imageservice.execute(new Tuple<String, Team>(link,teamTuple.getFirst()));
+	  	 
+		
 	}
 	
 	

@@ -2,14 +2,6 @@ package com.epic.score_app.viewlayer;
 
 import java.util.ArrayList;
 
-import com.epic.score_app.serviceslayer.ServiceProvider;
-import com.epic.score_app.serviceslayer.image.ImageService;
-import com.epic.score_app.view.R;
-import com.epic.score_app.view.R.id;
-import com.epic.score_app.view.R.layout;
-import com.epic.score_app.viewlayer.adapters.TeamItemAdapter;
-
-import domainmodel.Team;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
@@ -17,19 +9,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.NavUtils;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.epic.score_app.serviceslayer.ServiceProvider;
+import com.epic.score_app.view.R;
+import com.epic.score_app.viewlayer.adapters.TeamItemAdapter;
+
+import domainmodel.Team;
 
 
 public class TeamActivity extends Activity {
 	private ArrayList<Team> teams= new ArrayList<Team>();
 	private TeamItemAdapter adapter;
 	private ListView teams_list;
-	private ImageView flag;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
