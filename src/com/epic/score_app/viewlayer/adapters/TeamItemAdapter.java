@@ -58,6 +58,7 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 		TextView name = (TextView) view.findViewById(R.id.label_teamitem_name);
 		name.setText(t.getName());
         ImageView flag=(ImageView) view.findViewById(R.id.image_player);
+
         Tuple<Team, ImageView> teamTuple = new Tuple<Team, ImageView>(t, flag);
 		String link =chekifnotvalid(t);
 		String link_ ="http://flagspictures.org/photo/icons/normal/300/Brazil.png";
@@ -73,6 +74,7 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
        
 		//http://www.activityvillage.co.uk/world-cup-for-kids
 		return view;
+
 	}
 
 	public void refresh(ArrayList<Team> array) {
@@ -97,6 +99,7 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 	public String chekifnotvalid(Team land)
 	{
 		String link ="http://www.activityvillage.co.uk/sites/default/files/images/"+land.getName().toLowerCase().toString()+"_flag_printables_av2.jpg";
+		String linkhost = "http://scoreapp.freeiz.com/img/"+land.getName()+".png";
 		String link_ ="http://flagspictures.org/photo/icons/normal/300/Brazil.png";
 		String s =land.getName().toLowerCase();
 		
@@ -104,7 +107,7 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 			
 			return link_;
 		}else{
-			return link;
+			return linkhost;
 			
 		}
 		
