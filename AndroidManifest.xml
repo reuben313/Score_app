@@ -99,7 +99,7 @@
         </activity>
         <activity
             android:name="com.epic.score_app.viewlayer.StadiumActivity"
-            android:label="@string/title_activity_statium"
+            android:label="@string/title_activity_stadium"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
