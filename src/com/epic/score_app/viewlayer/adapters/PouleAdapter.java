@@ -32,6 +32,7 @@ public class PouleAdapter extends ArrayAdapter<Group> {
 		super(context, R.layout.view_poule, lis);
 		this.context = context;
 		this.list = lis;
+		init();
 
 	}
 	
