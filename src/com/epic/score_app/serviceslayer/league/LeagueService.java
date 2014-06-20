@@ -55,6 +55,7 @@ public class LeagueService extends RequestService{
 				ArrayList<Stadium> staduims = new ArrayList<Stadium>();
 				Stadium sta = new Stadium();
 				sta.setName("Sheik Ali staduim");
+				staduims.add(sta);
 				
 				
 				Message msgstaduims = new Message();
