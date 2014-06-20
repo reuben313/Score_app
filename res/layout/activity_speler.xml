@@ -13,6 +13,7 @@
 
     <ListView
         android:id="@+id/lijstplayers"
+        android:fastScrollEnabled="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     
