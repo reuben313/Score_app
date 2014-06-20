@@ -43,7 +43,16 @@ public class ViewPlayer extends ActionBarActivity {
 		height = (TextView) findViewById(R.id.height);
 		weight = (TextView) findViewById(R.id.weight);
 		foot = (TextView) findViewById(R.id.foot);
-	
+		
+		voornaam.setText(player.getName());
+		achternaam.setText(player.getLastname());
+		nationaliteit.setText(player.getNationality());
+		leeftijd.setText(player.getAge());
+		geboortedatum.setText(player.getDateOfbirth());
+		positie.setText(player.getPosition());
+		height.setText(player.getHeight());
+		weight.setText(player.getWeight());
+		foot.setText(player.getFoot());
 		
 				
 		
@@ -103,15 +112,17 @@ public class ViewPlayer extends ActionBarActivity {
 			
 				
 				ps=temp.getPosition();
+
 			
 			
-				leeftijd.setText(temp.getAge());
+				leeftijd.setText(lf);
 				geboortedatum.setText(gb);
 				positie.setText(ps);
 				height.setText(hg);
 				weight.setText(wg);
 				foot.setText(ft);
-				Log.i("speler lazy succes", temp.getFoot());
+				
+
 		//hier moet je de andere atributen can de speler toevoegrn
 				
 				break;

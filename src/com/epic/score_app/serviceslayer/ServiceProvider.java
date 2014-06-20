@@ -150,13 +150,6 @@ public class ServiceProvider implements IServiceProvider {
 			leagueservice.execute(b);
 			break;
 
-			//moet nog gefixed worden
-//		case getStadium:
-//			globalService = new GlobalService();
-//			globalService.setHandler(handler);
-//			globalService.execute(b);
-//			break;
-
 		default:
 			break;
 		}

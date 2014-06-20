@@ -158,6 +158,11 @@ public Player[] newArray(int arg0) {
 		dest.writeString(name);
 		dest.writeString(lastname);
 	    dest.writeString(nationality);
+	    dest.writeString(age);
+	    dest.writeString(dateOfbirth);
+	    dest.writeString(height);
+	    dest.writeString(weight);
+	    dest.writeString(foot);
 		
 		
 	}
