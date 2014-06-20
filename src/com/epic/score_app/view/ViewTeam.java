@@ -1,22 +1,34 @@
 package com.epic.score_app.view;
 
+import domainmodel.Team;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.os.Build;
 
 public class ViewTeam extends ActionBarActivity {
+	private Team team;
+	private String nm;
+	private TextView naam;
+
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_team);
+		Intent intent = getIntent();
+		Bundle b = intent.getExtras();
+		team= (Team)b.getSerializable("team");
+		naam = (TextView) findViewById(R.id.naam);
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
