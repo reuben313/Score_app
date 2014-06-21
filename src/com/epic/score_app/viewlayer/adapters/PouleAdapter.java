@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
+import com.epic.score_app.viewlayer.PouleActivity;
 
 import domainmodel.Group;
 import domainmodel.Team;
@@ -60,6 +61,7 @@ public class PouleAdapter extends ArrayAdapter<Group> {
 		view = inflator.inflate(R.layout.view_poule, null);
 		Group g = list.get(position);
 		ArrayList<Team> teams = g.getGroupTeams();
+		TextView poule = (TextView)view.findViewById(R.id.textView0);
 		TextView team1 = (TextView)view.findViewById(R.id.textView1);
 		TextView team2 = (TextView)view.findViewById(R.id.textView2);
 		TextView team3 = (TextView)view.findViewById(R.id.textView3);
@@ -69,6 +71,7 @@ public class PouleAdapter extends ArrayAdapter<Group> {
 		ImageView vlag3 = (ImageView)view.findViewById(R.id.imageView3);
 		ImageView vlag4 = (ImageView)view.findViewById(R.id.imageView4);
 		
+		poule.setText(g.getName());
 		team1.setText(teams.get(0).getName());
 		team2.setText(teams.get(1).getName());
 		team3.setText(teams.get(2).getName());

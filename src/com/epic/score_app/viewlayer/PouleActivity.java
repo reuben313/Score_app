@@ -33,7 +33,7 @@ public class PouleActivity extends Activity {
 		ListView list = (ListView)findViewById(R.id.ListView1);
 		list.setAdapter(adapter);
 		list.setDivider(new ColorDrawable(0xff444444));
-		list.setDividerHeight(2);
+		list.setDividerHeight(1);
 		
 		setupActionBar();
 	}
