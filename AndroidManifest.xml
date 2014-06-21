@@ -16,19 +16,26 @@
         android:icon="@drawable/logo_schild"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
         <activity
-            android:name="com.epic.score_app.viewlayer.MainActivity"
+            android:name="com.epic.score_app.viewlayer.SplashScreenActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+ 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:icon="@drawable/speler"
+            android:name="com.epic.score_app.viewlayer.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.epic.score_app.viewlayer.SpelerActivity"
+            android:icon="@drawable/speler"
             android:label="@string/title_activity_speler"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
             android:screenOrientation="portrait" >
@@ -37,8 +44,8 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:icon="@drawable/team"
             android:name="com.epic.score_app.viewlayer.TeamActivity"
+            android:icon="@drawable/team"
             android:label="@string/title_activity_team"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
             android:screenOrientation="portrait" >
@@ -47,18 +54,18 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:icon="@drawable/poule"
             android:name="com.epic.score_app.viewlayer.PouleActivity"
+            android:icon="@drawable/poule"
             android:label="@string/title_activity_poule"
-            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" 
-            android:screenOrientation="portrait">
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:icon="@drawable/instellingen"
             android:name="com.epic.score_app.viewlayer.SettingsActivity"
+            android:icon="@drawable/instellingen"
             android:label="@string/title_activity_settings"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
             android:screenOrientation="portrait" >
@@ -67,8 +74,8 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:icon="@drawable/nieuws"
             android:name="com.epic.score_app.viewlayer.NieuwsActivity"
+            android:icon="@drawable/nieuws"
             android:label="@string/title_activity_nieuws"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
             android:screenOrientation="portrait" >
@@ -77,8 +84,8 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:icon="@drawable/wedstrijd"
             android:name="com.epic.score_app.viewlayer.WedstrijdenActivity"
+            android:icon="@drawable/wedstrijd"
             android:label="@string/title_activity_wedstrijden"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
             android:screenOrientation="portrait" >
@@ -100,12 +107,12 @@
 
         <activity
             android:name="com.epic.score_app.viewlayer.ViewPlayer"
-            android:label="@string/title_activity_view_player" 
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_view_player"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:icon="@drawable/media"
             android:name="com.epic.score_app.viewlayer.MediaActivity"
+            android:icon="@drawable/media"
             android:label="@string/title_activity_media"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
             android:screenOrientation="portrait" >
@@ -116,8 +123,8 @@
         <activity
             android:name="com.epic.score_app.viewlayer.StadiumActivity"
             android:label="@string/title_activity_stadium"
-            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity" 
-            android:screenOrientation="portrait">
+            android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
