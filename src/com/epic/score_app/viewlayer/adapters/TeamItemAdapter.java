@@ -88,7 +88,7 @@ public class TeamItemAdapter extends ArrayAdapter<Team>{
 	}
 
 	public Bitmap getBitmapFromMemCache(String key) {
-	    return mMemoryCache.get(key);
+	    return mMemoryCache.get(key.toLowerCase());
 	}
 	
 	public String chekifnotvalid(Team land)

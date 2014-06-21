@@ -122,7 +122,7 @@ public class PouleAdapter extends ArrayAdapter<Group> {
 	}
 
 	public Bitmap getBitmapFromMemCache(String key) {
-	    return mMemoryCache.get(key);
+	    return mMemoryCache.get(key.toLowerCase());
 	}
 	
 	public String chekifnotvalid(Team land)

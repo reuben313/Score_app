@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.util.LruCache;
 import android.widget.ImageView;
 
@@ -13,6 +14,7 @@ import com.epic.score_app.serviceslayer.interfaces.IServiceProvider;
 import com.epic.score_app.serviceslayer.league.LeagueService;
 import com.epic.score_app.serviceslayer.team.TeamService;
 import com.epic.score_app.view.R;
+import com.epic.score_app.viewlayer.MemoryCache;
 
 import domainmodel.Team;
 
@@ -200,8 +202,12 @@ public class ServiceProvider implements IServiceProvider {
 					if(b!=null){
 						teamTuple.getSecond().setImageBitmap(b);
 						try{
-							mMemoryCache.put("flag_"+teamTuple.getFirst().getName().toLowerCase()+".png", b);
-						}catch(NullPointerException exe){}
+							String key="flag_"+teamTuple.getFirst().getName().toLowerCase()+".png";
+							mMemoryCache.put(key, b);
+							Log.i("putting in cahche ",key);
+						}catch(NullPointerException exe){
+							Log.i("putting in cahche error", "",exe);
+						}
 
 					}
 				}   
