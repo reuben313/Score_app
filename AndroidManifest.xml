@@ -57,6 +57,7 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
+            android:icon="@drawable/instellingen"
             android:name="com.epic.score_app.viewlayer.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName="com.epic.score_app.viewlayer.MainActivity"
