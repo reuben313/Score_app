@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:adjustViewBounds="true"
     android:background="@drawable/grass_texture241"
     android:scaleType="fitCenter" >
 
+    <TextView
+        android:id="@+id/textViewSponsor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="10dp"
+        android:text="Gesponsord door"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:textColor="#000000" />
+
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="40dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/textViewSponsor"
+        android:paddingTop="10dp"
         android:src="@drawable/knvb" />
 
     <ProgressBar
@@ -19,8 +32,8 @@
         style="@android:style/Widget.Holo.Light.ProgressBar.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgLogo"
+        android:paddingBottom="25dp"
         android:layout_centerHorizontal="true"
-        android:paddingTop="20dp" />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
