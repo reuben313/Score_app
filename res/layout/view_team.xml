@@ -11,25 +11,21 @@
     android:scaleType="fitCenter"
     tools:context="com.epic.score_app.ViewTeam$PlaceholderFragment" >
 
-    
     <TextView
         android:id="@+id/name"
         android:layout_width="fill_parent"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/pasfoto"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        
-         />
-    
+        android:layout_alignLeft="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="34dp"
+        android:gravity="center_horizontal" />
+
     <TextView
         android:id="@+id/players"
         android:layout_width="fill_parent"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/pasfoto"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        
-         />
+        android:layout_alignLeft="@+id/name"
+        android:layout_below="@+id/name"
+        android:gravity="center_horizontal" />
     
 </RelativeLayout>

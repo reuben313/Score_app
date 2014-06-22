@@ -17,6 +17,7 @@
     <string name="title_activity_view_team">Team details</string>
     <string name="title_activity_view_player">ViewPlayerActivity</string>
     <string name="title_activity_temp_view_players">TempViewPlayers</string>
+    <string name="title_activity_temp_view_teams">TempViewTeams</string>
 
     <string-array name="speler_array">
         <item>Ibrahimovich, Zlatan</item>
