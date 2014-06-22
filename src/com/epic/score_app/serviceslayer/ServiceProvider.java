@@ -9,7 +9,9 @@ import android.util.Log;
 import android.util.LruCache;
 import android.widget.ImageView;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
 import com.epic.score_app.serviceslayer.image.ImageService;
+import com.epic.score_app.serviceslayer.image.ImageServicee;
 import com.epic.score_app.serviceslayer.interfaces.IServiceProvider;
 import com.epic.score_app.serviceslayer.league.LeagueService;
 import com.epic.score_app.serviceslayer.team.TeamService;
@@ -59,6 +61,9 @@ public class ServiceProvider implements IServiceProvider {
 	
 	public static final int getStandings=13;
 	public static final int getStandings_response=1313;
+	
+	public static final int getNewsDescription=14;
+	public static final int getNewsDescription_response=1414;
 
 
 
@@ -66,6 +71,7 @@ public class ServiceProvider implements IServiceProvider {
 	private LeagueService leagueservice= null;
 	private GlobalService globalService=null;
 	private ImageService imageservice = null;
+	private ImageServicee imageservicee = null;
 
 
 
@@ -162,6 +168,11 @@ public class ServiceProvider implements IServiceProvider {
 			leagueservice.setHandler(handler);
 			leagueservice.execute(b);
 			break;
+		case getNewsDescription:
+			globalService = new GlobalService();
+			globalService.setHandler(handler);
+			globalService.execute(b);
+			break;
 
 		default:
 			break;
@@ -238,4 +249,43 @@ public class ServiceProvider implements IServiceProvider {
 	}
 
 
+
+public void getImageFromUrll(
+		final LruCache<String, Bitmap> mMemoryCache, final Tuple<Ichacheable, ImageView> teamTuple) {
+
+	Handler handler = new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			if (msg.what==ServiceProvider.getImage_response) {
+
+				Bitmap b= (Bitmap) msg.obj;
+				if(b!=null){
+					teamTuple.getSecond().setImageBitmap(b);
+					try{
+						String key=teamTuple.getFirst().getCacheName();
+						mMemoryCache.put(key, b);
+						Log.i("putting in cahche ",key);
+					}catch(NullPointerException exe){
+						Log.i("putting in cahche error", "",exe);
+					}
+
+				}
+			}   
+
+		};
+
+	};
+	Context c = teamTuple.getSecond().getContext();
+
+	imageservicee = new ImageServicee(c);
+	imageservicee.setHandler(handler);
+
+
+	imageservicee.execute(teamTuple.getFirst());
+
+
 }
+
+
+}
+
+

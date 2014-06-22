@@ -382,30 +382,33 @@ public class EntityFactory {
 				News  news= new News();
 				long news_id;
 				String title;
-				String content;
-				String titlephotoLink;
-				int contentphotoid;
-			    Date datum;
+				String photoLink;
+				
 			    
-			    news_id=jnews.getLong("NEWS_ID");
-			    title= jnews.getString("TITLE");
-			    content= jnews.getString("content");
-			    titlephotoLink= jnews.getString("title link");
-			    contentphotoid=jnews.getInt("content_photo_id");
-			    String datuml=jnews.getString("datum");
-			    //datum= new Date(datuml);
+			    news_id=jnews.getLong("news_id");
+			    title= jnews.getString("title");
+			   
+			    photoLink=jnews.getString("link");
+			    
+			    
+			    
+			    String pubdate=jnews.getString("pubdate");
+			 
 			    
 			    news.setTitle(title);
-			    news.setContent(content);
-			    news.setContentphotoid(contentphotoid);
+			   news.setPubdate(pubdate);
+			   news.setPhotoLink(photoLink);
+			   
+			   
 			    news.setNews_id(news_id);
-			  //  news.setDatum(datum);
-			    news.setTitlephotoLink(titlephotoLink);
+			  
+			   
 			    newslist.add(news);
 				
 				
 				
 			} 
+		
 			
 		}catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -413,6 +416,54 @@ public class EntityFactory {
 		}
 		return newslist;
 	}
+	
+	public News getNewsDescription(JSONArray values) {
+		News news= new News();
+		try {
+		for (int i = 0; i < values.length(); i++) {
+			//[{"news":{"0":"1","NEWS_ID":"1","1":"test","TITLE":"test","2":"test content ","content":"test content ","3":"ere",
+			//"title link":"ere","4":"1","content_photo_id":"1","5":"0000-00-00 00:00:00","datum":"0000-00-00 00:00:00"}}]
+			
+				JSONObject newsContainer = values.getJSONObject(i);
+				JSONObject jnews = newsContainer.getJSONObject("news");
+				
+			
+				String content;
+				long news_id=jnews.getLong("news_id");
+				
+			    
+			   
+			    content= jnews.getString("desc");
+			  
+			    
+			    
+			    
+			
+			    
+			  
+			    news.setContent(content);
+			    news.setNews_id(news_id);
+			   
+			
+		
+			   
+			   
+				
+				
+				
+			} 
+		
+			
+		}catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return news;
+	}
+	
+	
+	
+	
 
 
 

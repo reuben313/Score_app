@@ -7,9 +7,6 @@ import junit.framework.TestCase;
 
 import org.json.JSONArray;
 
-import android.os.Bundle;
-import android.os.Handler;
-
 import com.epic.score_app.datalayer.EntityFactory;
 import com.epic.score_app.datalayer.GlobalGateway;
 import com.epic.score_app.datalayer.LeagueGateway;
@@ -25,7 +22,7 @@ import domainmodel.Team;
 import domainmodel.Wallof;
 
 public class JsonTest extends TestCase {
-private Handler h;
+
 	public JsonTest(String name) {
 		super(name);
 	}

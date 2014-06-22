@@ -28,6 +28,16 @@ public class GlobalService extends RequestService{
 					handler.sendMessage(msg);
 				break;
 				
+				case ServiceProvider.getNewsDescription:
+					News news_desc =new News();
+			long nid=		receivedBundle.getLong("news_id");
+					news_desc=gateway.getNewsDescription(nid);
+					Message msgNewsDescription = new Message();
+					msgNewsDescription.what= ServiceProvider.getNewsDescription_response;
+					msgNewsDescription.obj=news_desc;
+					handler.sendMessage(msgNewsDescription);
+				break;
+				
 				case ServiceProvider.getWallOf:
 					 
 					

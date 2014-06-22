@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
+
 import domainmodel.Team;
 import Utils.Tuple;
 import android.content.Context;
@@ -110,7 +112,63 @@ public class InternalStorageGateway {
 		};
 		
 	}
+
+
+	public Bitmap getImage(Ichacheable icache) {
+		{
+			Bitmap bitmap = null;
+			
+			String filename= icache.getCacheName();
+			
+			File file = new File(context.getFilesDir(),filename );
+			if (file.isFile()) {
+				Log.i("getting from the storage", filename);
+				BitmapFactory.Options options = new BitmapFactory.Options();
+				options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+				 bitmap = BitmapFactory.decodeFile(file.getPath(),options);
+			}else{
+				Log.i("Calling from web", icache.getUrl());
+				bitmap= getImagefromUrl(icache);
+				
+				
+			}
+			
+			
+			return bitmap;
+	}
 	
 	
+	
+}
+	
+	
+	private Bitmap getImagefromUrl(Ichacheable icache)
+	{
+		 URL url;
+		 Bitmap bmp=null;
+		try {
+			url = new URL(icache.getUrl());
+			 try {
+				 bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+				 
+				 if(bmp!=null){
+					 String filename= icache.getCacheName();
+					 Thread t = new Thread(writeToInternalStorage(filename, bmp));
+					 t.run();
+					 
+				 }
+					
+				 
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return bmp;
+	}
 	
 }

@@ -40,7 +40,7 @@
         android:src="@drawable/nedchil" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/news_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/ImageView02"
@@ -50,11 +50,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/news_desc_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/ImageView01"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/news_Title"
         android:adjustViewBounds="true"
         android:src="@drawable/lijn" />
 
@@ -62,8 +62,8 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/imageView1"
+        android:layout_alignLeft="@+id/news_Title"
+        android:layout_below="@+id/news_desc_image"
         android:src="@drawable/nedchil" />
 
     <ImageView

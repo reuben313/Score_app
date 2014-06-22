@@ -31,6 +31,16 @@ public class GlobalGateway extends JsonService{
 	}
 	
 	
+	public News getNewsDescription(long news_id) {
+	       News news= new News();
+		   String link=ServiceProvider.Host+"/news.php?nid="+news_id;
+	       JSONArray values = null;
+	       values=GetData(link);
+	       news=  factory.getNewsDescription(values);
+	       return news;
+		}
+	
+	
 	public ArrayList<Wallof> getWallofs()
 	{
 		ArrayList<Wallof> wallofs = new ArrayList<Wallof>();

@@ -1,17 +1,21 @@
 package domainmodel;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
 
 
-public class News {
+
+public class News implements Serializable,Ichacheable {
 	
 	private long news_id;
 	private String title;
 	private String content;
-	private String titlephotoLink;
+	private String photolink;
 	private int contentphotoid;
 	private Date datum;
+	private String pubdate;
 	public long getNews_id() {
 		return news_id;
 	}
@@ -30,11 +34,11 @@ public class News {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getTitlephotoLink() {
-		return titlephotoLink;
+	public String getPhotoLink() {
+		return photolink;
 	}
-	public void setTitlephotoLink(String titlephotoLink) {
-		this.titlephotoLink = titlephotoLink;
+	public void setPhotoLink(String titlephotoLink) {
+		this.photolink = titlephotoLink;
 	}
 	public int getContentphotoid() {
 		return contentphotoid;
@@ -47,6 +51,22 @@ public class News {
 	}
 	public void setDatum(Date datum) {
 		this.datum = datum;
+	}
+	public String getPubdate() {
+		return pubdate;
+	}
+	public void setPubdate(String pubdate) {
+		this.pubdate = pubdate;
+	}
+	@Override
+	public String getCacheName() {
+		
+		return "news_"+getTitle()+".png";
+	}
+	@Override
+	public String getUrl() {
+		// TODO Auto-generated method stub
+		return getPhotoLink();
 	}
 	
 }
