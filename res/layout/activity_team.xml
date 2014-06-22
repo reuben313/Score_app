@@ -12,7 +12,7 @@
     tools:context=".TeamActivity" >
 
     <ListView
-        android:id="@+id/lijstspelers"
+        android:id="@+id/lijstteams"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

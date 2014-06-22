@@ -18,7 +18,6 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
-import com.epic.score_app.view.ViewTeam;
 import com.epic.score_app.viewlayer.adapters.TeamItemAdapter;
 
 import domainmodel.Player;
@@ -36,7 +35,7 @@ public class TeamActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_team);
 		adapter = new TeamItemAdapter(this, teams);
-		teams_list=(ListView) findViewById(R.id.lijstspelers);
+		teams_list=(ListView) findViewById(R.id.lijstteams);
 		teams_list.setAdapter(adapter);
 		teams_list.setDivider(new ColorDrawable(0xff444444));
 		teams_list.setDividerHeight(1);

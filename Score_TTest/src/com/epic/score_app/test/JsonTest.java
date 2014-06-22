@@ -115,6 +115,11 @@ public void testGetMatchesbygroup(){
 	LeagueGateway gateway= new LeagueGateway(null);
 	matches=gateway.getMatchesByGroupId(1);
 	assertEquals(6, matches.size());
+	Match first= matches.get(0);
+	assertEquals(3, first.getTeam_home_result());
+	assertEquals(1, first.getTeam_visitor_result());
+	
+	
 	
 	
 }

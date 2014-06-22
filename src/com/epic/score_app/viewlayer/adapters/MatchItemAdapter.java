@@ -87,33 +87,10 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		Team teamuit = _match.getTeamVisitor();
 		thuis.setText(teamhome.getName());
 		uit.setText(teamuit.getName());
-		loadFlagImage(teamhome,vlag2);
+
 		loadFlagImage(teamuit,vlag1);
-		
-		//Team t1 =  teams.get(0);
-		//Team t2 = teams.get(1);
-		//Tuple<Team, ImageView> teamTuple1 = new Tuple<Team, ImageView>(t1, vlag1);
-		//Tuple<Team, ImageView> teamTuple2 = new Tuple<Team, ImageView>(t2, vlag2);
-
-		//String link1 =chekifnotvalid(t1);
-		//String link2 =chekifnotvalid(t2);
-
-		//Bitmap bitmap1 = getBitmapFromMemCache("flag_"+t1.getName()+".png");
-		//Bitmap bitmap2 = getBitmapFromMemCache("flag_"+t2.getName()+".png"); 
-
-
-		 //  if (bitmap1==null) {
-	     //   	 ServiceProvider.getInsance().getImageFromUrl(link1,mMemoryCache, teamTuple1);
-	     //   } if(bitmap2==null){
-	    //    	 ServiceProvider.getInsance().getImageFromUrl(link2,mMemoryCache, teamTuple2);
-	    //    }else{
-				
-		//		vlag1.setImageBitmap(bitmap1);
-		//		vlag2.setImageBitmap(bitmap2);
-		//	   Log.i("getting from cash", "yes");
-		//	}
-
-		return view;
+		loadFlagImage(teamhome,vlag2);
+        return view;
 	}
 
 	private void loadFlagImage(Ichacheable teamhome, ImageView flag) {
