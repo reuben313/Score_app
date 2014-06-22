@@ -13,7 +13,17 @@
 
     
     <TextView
-        android:id="@+id/naam"
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/pasfoto"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        
+         />
+    
+    <TextView
+        android:id="@+id/players"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/pasfoto"

@@ -129,7 +129,7 @@
                 android:value="com.epic.score_app.viewlayer.MainActivity" />
         </activity>
         <activity
-            android:name="com.epic.score_app.view.ViewTeam"
+            android:name="com.epic.score_app.viewlayer.ViewTeam"
             android:label="@string/title_activity_view_team"
             android:screenOrientation="portrait" >
         </activity>
