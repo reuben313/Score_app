@@ -1,5 +1,7 @@
 package domainmodel;
 
+import java.util.ArrayList;
+
 
 
 
@@ -84,6 +86,7 @@ private int team_visitor_result;
 	public void setMatchDate(String matchDate) {
 		this.matchDate = matchDate;
 	}
+	
 	
 	
 	

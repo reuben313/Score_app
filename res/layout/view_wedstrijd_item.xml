@@ -3,6 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+     
+          <TextView
+              android:id="@+id/matchdatum"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:text="match datum" />
+          
+              <TextView
+        android:id="@+id/tijd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="tijd" />
+          
+  
     <TextView
         android:id="@+id/versus"
         android:layout_width="wrap_content"
@@ -12,31 +28,7 @@
         android:layout_centerHorizontal="true"
         android:text="VS" />
 
-    <TextView
-        android:id="@+id/matchdatum"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="26dp"
-        android:layout_toLeftOf="@+id/versus"
-        android:text="match datum" />
-
-    <TextView
-        android:id="@+id/thuisploeg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/matchdatum"
-        android:layout_below="@+id/matchdatum"
-        android:layout_marginTop="19dp"
-        android:text="thuisploeg" />
-
-    <TextView
-        android:id="@+id/tijd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/uitploeg"
-        android:text="tijd" />
+ 
 
     <TextView
         android:id="@+id/uitploeg"
@@ -46,5 +38,29 @@
         android:layout_alignBottom="@+id/thuisploeg"
         android:layout_alignParentRight="true"
         android:text="uitploeg" />
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/matchdatum"
+         />
+
+    <TextView
+        android:id="@+id/thuisploeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:text="thuisploeg" />
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/uitploeg"
+        android:layout_alignParentRight="true"
+         />
 
 </RelativeLayout>
