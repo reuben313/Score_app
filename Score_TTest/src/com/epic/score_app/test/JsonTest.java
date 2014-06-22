@@ -20,6 +20,7 @@ import domainmodel.Match;
 import domainmodel.News;
 import domainmodel.Player;
 import domainmodel.Stadium;
+import domainmodel.Standing;
 import domainmodel.Team;
 import domainmodel.Wallof;
 
@@ -106,14 +107,20 @@ assertTrue(teams.size()==32);
 public void testGetmatches(){
 	ArrayList<Match> matches = new ArrayList<Match>();
 	LeagueGateway gateway= new LeagueGateway(null);
-	Bundle receivedBundle = new Bundle();
-	int groupId= 0;
-	receivedBundle.putInt("compid", 1);
+	matches=gateway.getMatches(1);
 	
-	
-	matches=gateway.getMatches(receivedBundle);
 	assertTrue(matches.size()==48);
 	}
+
+public void testGetMatchesbygroup(){
+	
+	ArrayList<Match> matches = new ArrayList<Match>();
+	LeagueGateway gateway= new LeagueGateway(null);
+	matches=gateway.getMatchesByGroupId(1);
+	assertEquals(6, matches.size());
+	
+	
+}
 
 public void testGetGroups(){
 	
@@ -164,8 +171,22 @@ public void testUpdate_w(){
 
 public void testGetStaduims()
 {
-	GlobalGateway gateway = new GlobalGateway(null);
+	LeagueGateway gateway = new LeagueGateway(null);
 	ArrayList<Stadium> staduims = new ArrayList<Stadium>();
+	staduims=gateway.getStadiums(1);
+	assertTrue(staduims.size()>1);
+	
+	
+
+
+}
+public void testGetStandings()
+{
+	LeagueGateway gateway = new LeagueGateway(null);
+	ArrayList<Standing> standings = new ArrayList<Standing>();
+	standings=gateway.getStandings(1);
+	assertTrue(standings.size()>1);
+	
 	
 
 

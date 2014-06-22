@@ -12,6 +12,7 @@ import com.epic.score_app.serviceslayer.ServiceProvider;
 import domainmodel.Group;
 import domainmodel.Match;
 import domainmodel.Stadium;
+import domainmodel.Standing;
 
 
 
@@ -26,10 +27,21 @@ public class LeagueService extends RequestService{
 			switch (requestCode) {
 			case ServiceProvider.getmatches:
 				ArrayList<Match> matches = new ArrayList<Match>();
-				int groupId= 0;
+				Integer groupId= receivedBundle.getInt("group_id");
 				int compid=receivedBundle.getInt("compid");
-				groupId=receivedBundle.getInt("group_id");
-				gateway.getMatches(receivedBundle);
+				
+				if (groupId!=null) {
+				
+					matches=	gateway.getMatchesByGroupId(groupId.intValue());
+				} else {
+				    matches=	gateway.getMatches(compid);
+				}
+				
+				
+				
+				
+				
+				
 				Message msg = new Message();
 				msg.what= ServiceProvider.getmatches_response;
 				msg.obj=matches;
@@ -50,21 +62,27 @@ public class LeagueService extends RequestService{
 			break;
 			
 			case ServiceProvider.getStadiums:
-				 compid=receivedBundle.getInt("compid");
-				
+				 
+				compid=receivedBundle.getInt("compid");
 				ArrayList<Stadium> staduims = new ArrayList<Stadium>();
-				Stadium sta = new Stadium();
-				sta.setName("Sheik Ali staduim");
-				staduims.add(sta);
-				
-				
+			    staduims=gateway.getStadiums(compid);
 				Message msgstaduims = new Message();
 				msgstaduims.what= ServiceProvider.getStadiums_response;
 				msgstaduims.obj=staduims;
 				handler.sendMessage(msgstaduims);
+				break;
 				
 				
-			break;
+			case ServiceProvider.getStandings:
+				 
+				compid=receivedBundle.getInt("compid");
+				ArrayList<Standing> standings = new ArrayList<Standing>();
+			    standings=gateway.getStandings(compid);
+				Message msgstandings = new Message();
+				msgstandings.what= ServiceProvider.getStandings_response;
+				msgstandings.obj=standings;
+				handler.sendMessage(msgstandings);
+				break;
 				
 				
 

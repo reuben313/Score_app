@@ -11,11 +11,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Parcelable;
+import android.util.JsonReader;
 import android.util.Log;
 import domainmodel.Group;
 import domainmodel.Match;
+import domainmodel.Match.MATCH_STATUS;
 import domainmodel.News;
 import domainmodel.Player;
+import domainmodel.Stadium;
+import domainmodel.Standing;
 import domainmodel.Team;
 import domainmodel.Wallof;
 
@@ -144,6 +148,15 @@ public class EntityFactory {
 				long team_homeID= jsonM.getLong("TEAM_HOME");
 				long team_visitorID= jsonM.getLong("TEAM_HOME");
 				long group_id= jsonM.getLong("GID");
+				//ST","9":"3","team1_result":"3","10":"1","team2_result":"1","11":"played","match_status":"played"}
+				int team1result = jsonM.getInt("team1_result");
+				int team2result = jsonM.getInt("team2_result");
+				String status = jsonM.getString("match_status");
+				m.setTeam_home_result(team1result);
+				m.setTeam_visitor_result(team2result);
+			    m.setMatchStatus(status.equalsIgnoreCase("played")?  MATCH_STATUS.PLAYED:MATCH_STATUS.NOTPLAYED);
+				
+				
 				
 				t1.setName(team1);
 				t1.setTeamId(team_homeID);
@@ -433,9 +446,74 @@ public class EntityFactory {
 	}
 
 
+public ArrayList<Stadium> getStaduims(JSONArray values){
+	ArrayList<Stadium> stadiums = new ArrayList<Stadium>();
+	try{
+		for (int i = 0; i < values.length(); i++) {
+			JSONObject obj = values.getJSONObject(i);
+			JSONObject jstadium = obj.getJSONObject("stadium");
+			Stadium stadium = new Stadium();
+			String name =  jstadium.getString("name");
+			String description = jstadium.getString("desc");
+			String link = jstadium.getString("link");
+			
+			stadium.setName(name);
+			stadium.setDescription(description);
+			stadium.setPhoto_link(link);
+			stadiums.add(stadium);
+		
+			
+		}
+		
+		}catch(Exception ex)
+		{}
+	
+	
+	return stadiums;
+}
 
+
+
+public ArrayList<Standing> getStandings(JSONArray values) {
+	ArrayList<Standing> standings = new ArrayList<Standing>();
+	try{
+		for (int i = 0; i < values.length(); i++) {
+			JSONObject obj = values.getJSONObject(i);
+			JSONObject jstanding = obj.getJSONObject("stats");
+			Standing standing = new Standing();
+			Team team = new Team();
+			//{"0":"1","team_id":"1","1":"0","win":"0","2":"0","lose":"0","3":"0","draw":"0","4":"0","points":"0","5":"1","comp_id":"1","6":"BRAZIL","team_name":"BRAZIL"}},{"stats":
+			long team_id = jstanding.getLong("team_id");
+			String teamName= jstanding.getString("team_name");
+			int win =  jstanding.getInt("win");
+			 int lose = jstanding.getInt("lose");
+			 int draw = jstanding.getInt("draw");
+			 int points = jstanding.getInt("points");
+			 int compid = jstanding.getInt("comp_id");
+			 team.setTeamId(team_id);
+			 team.setName(teamName);
+			 standing.setTeam(team);
+			 standing.setWin(win);
+			 standing.setLose(lose);
+			 standing.setPoint(points);
+			 standing.setDraw(draw);
+			 standings.add(standing);
+		
+			
+		}
+		
+		}catch(Exception ex)
+		{}
+	
+	
+	
+	
+	return standings;
+}
 
 	}
+
+
 	
 	
 	

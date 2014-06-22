@@ -56,6 +56,9 @@ public class ServiceProvider implements IServiceProvider {
 	
 	public static final int getStadiums= 12;
 	public static final int getStadiums_response = 1212;
+	
+	public static final int getStandings=13;
+	public static final int getStandings_response=1313;
 
 
 
@@ -69,6 +72,8 @@ public class ServiceProvider implements IServiceProvider {
 
 
 	private static ServiceProvider instance=null;
+
+	
 
 
 	public static ServiceProvider getInsance(){
@@ -147,6 +152,12 @@ public class ServiceProvider implements IServiceProvider {
 			
 			
 		case getStadiums:
+			leagueservice = new LeagueService();
+			leagueservice.setHandler(handler);
+			leagueservice.execute(b);
+			break;
+			
+		case getStandings:
 			leagueservice = new LeagueService();
 			leagueservice.setHandler(handler);
 			leagueservice.execute(b);
