@@ -88,8 +88,7 @@ public class WedstrijdenActivity extends Activity {
 	public void loadMatches(){
 		Bundle b = new Bundle();
 		b.putInt("requestcode", ServiceProvider.getmatches);
-		b.putInt("limit", 20);
-		b.putInt("offset", 0);
+		b.putInt("compid", 1);
 		ServiceProvider.getInsance().getData(b, matchhandler);
 	}
 
@@ -102,7 +101,6 @@ public class WedstrijdenActivity extends Activity {
 				match= (ArrayList<Match>) msg.obj;
 				
 				adapter.addAll(match);
-				offset+=20;
 				break;
 			default:
 				break;
