@@ -17,10 +17,8 @@ import android.widget.ListView;
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.adapters.MatchItemAdapter;
-import com.epic.score_app.viewlayer.adapters.PlayerItemAdapter;
 
 import domainmodel.Match;
-import domainmodel.Player;
 
 public class WedstrijdenActivity extends Activity {
 	private ArrayList<Match> match= new ArrayList<Match>();
@@ -88,9 +86,7 @@ public class WedstrijdenActivity extends Activity {
 	public void loadMatches(){
 		Bundle b = new Bundle();
 		b.putInt("requestcode", ServiceProvider.getmatches);
-		b.putInt("limit", 20);
-		b.putInt("offset", 0);
-		b.putInt("compid", 1);
+        b.putInt("compid", 1);
 		ServiceProvider.getInsance().getData(b, matchhandler);
 	}
 
@@ -103,7 +99,6 @@ public class WedstrijdenActivity extends Activity {
 				match= (ArrayList<Match>) msg.obj;
 				
 				adapter.addAll(match);
-				offset+=20;
 				break;
 			default:
 				break;
