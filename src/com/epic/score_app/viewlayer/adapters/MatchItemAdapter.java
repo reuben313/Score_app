@@ -75,8 +75,8 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		TextView tijd= (TextView)view.findViewById(R.id.tijd);
 		TextView thuis = (TextView)view.findViewById(R.id.thuisploeg);
 		TextView uit = (TextView)view.findViewById(R.id.uitploeg);
-		ImageView vlag1 = (ImageView)view.findViewById(R.id.image1);
-		ImageView vlag2 = (ImageView)view.findViewById(R.id.image2);
+		//ImageView vlag1 = (ImageView)view.findViewById(R.id.image1);
+		//ImageView vlag2 = (ImageView)view.findViewById(R.id.image2);
 		matchdatum.setText(_match.getMatchDate());
 		tijd.setText(_match.getBeginsAt());
 		Team teamhome = _match.getTeamHome();
