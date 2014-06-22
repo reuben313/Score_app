@@ -3,9 +3,11 @@ package domainmodel;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
 
 
-public class Team implements Serializable {
+
+public class Team implements Serializable,Ichacheable {
     /**
      * @attribute
      */
@@ -35,6 +37,16 @@ public class Team implements Serializable {
 	}
 	public void setPlayers(ArrayList<Player> players) {
 		this.players = players;
+	}
+	@Override
+	public String getCacheName() {
+		// TODO Auto-generated method stub
+		return "flag_"+getName()+".jpg";
+	}
+	@Override
+	public String getUrl() {
+		// TODO Auto-generated method stub
+		return  "http://scoreapp.freeiz.com/img/"+getName()+".png";
 	}
 	
 }

@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.SpelerActivity;
@@ -42,6 +43,7 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		this.context=context;
 		this.match=match;
 		inflator = this.context.getLayoutInflater();
+		init();
 
 
 	}
@@ -75,15 +77,19 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		TextView tijd= (TextView)view.findViewById(R.id.tijd);
 		TextView thuis = (TextView)view.findViewById(R.id.thuisploeg);
 		TextView uit = (TextView)view.findViewById(R.id.uitploeg);
-		//ImageView vlag1 = (ImageView)view.findViewById(R.id.image1);
-		//ImageView vlag2 = (ImageView)view.findViewById(R.id.image2);
+		ImageView vlag1 = (ImageView)view.findViewById(R.id.team1_flag);
+		ImageView vlag2 = (ImageView)view.findViewById(R.id.team2_flag);
+		
+		
 		matchdatum.setText(_match.getMatchDate());
 		tijd.setText(_match.getBeginsAt());
 		Team teamhome = _match.getTeamHome();
 		Team teamuit = _match.getTeamVisitor();
 		thuis.setText(teamhome.getName());
 		uit.setText(teamuit.getName());
-
+		loadFlagImage(teamhome,vlag1);
+		loadFlagImage(teamuit,vlag2);
+		
 		//Team t1 =  teams.get(0);
 		//Team t2 = teams.get(1);
 		//Tuple<Team, ImageView> teamTuple1 = new Tuple<Team, ImageView>(t1, vlag1);
@@ -110,6 +116,17 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		return view;
 	}
 
+	private void loadFlagImage(Ichacheable teamhome, ImageView flag) {
+		Bitmap b = getBitmapFromMemCache(teamhome.getCacheName());
+		if (b==null) {
+			ServiceProvider.getInsance().getImageFromUrll(mMemoryCache, new Tuple<Ichacheable, ImageView>(teamhome, flag));
+			
+		}else{
+			flag.setImageBitmap(b);
+		}
+		
+	}
+
 	public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
 	    if (getBitmapFromMemCache(key) == null) {
 	        mMemoryCache.put(key, bitmap);
@@ -117,7 +134,7 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 	}
 
 	public Bitmap getBitmapFromMemCache(String key) {
-	    return mMemoryCache.get(key.toLowerCase());
+	    return mMemoryCache.get(key);
 	}
 	
 	public String chekifnotvalid(Team land)
