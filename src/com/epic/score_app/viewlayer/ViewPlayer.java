@@ -79,7 +79,7 @@ public class ViewPlayer extends ActionBarActivity {
 		
 		public void handleMessage(Message msg) {
 			 switch (msg.what) {
-			case ServiceProvider.getTeams_response:
+			case ServiceProvider.getLazyPlayer_response:
 			
 				Player temp = (Player) msg.obj;
 				
