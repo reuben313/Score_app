@@ -21,6 +21,7 @@ import com.epic.score_app.viewlayer.ViewPlayer;
 import domainmodel.Match;
 import domainmodel.News;
 import domainmodel.Player;
+import domainmodel.Team;
 
 public class MatchItemAdapter extends ArrayAdapter<Match> {
 	private List<Match> match;
@@ -49,8 +50,10 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 	TextView uit = (TextView)view.findViewById(R.id.uitploeg);
 	matchdatum.setText(_match.getMatchDate());
 	tijd.setText(_match.getBeginsAt());
-	thuis.setText(_match.getTeamHome().toString());
-	uit.setText(_match.getTeamVisitor().toString());
+	Team teamhome = _match.getTeamHome();
+	Team teamuit = _match.getTeamVisitor();
+	thuis.setText(teamhome.getName());
+	uit.setText(teamuit.getName());
 		
 		 
 		 

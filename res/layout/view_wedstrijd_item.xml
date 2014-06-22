@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@+id/matchdatum"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginRight="26dp"
@@ -34,9 +34,8 @@
         android:id="@+id/tijd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/thuisploeg"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/versus"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/uitploeg"
         android:text="tijd" />
 
     <TextView
@@ -45,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/thuisploeg"
         android:layout_alignBottom="@+id/thuisploeg"
-        android:layout_alignLeft="@+id/tijd"
+        android:layout_alignParentRight="true"
         android:text="uitploeg" />
 
 </RelativeLayout>
