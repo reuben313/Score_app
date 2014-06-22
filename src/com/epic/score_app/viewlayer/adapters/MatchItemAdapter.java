@@ -87,8 +87,8 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		Team teamuit = _match.getTeamVisitor();
 		thuis.setText(teamhome.getName());
 		uit.setText(teamuit.getName());
-		loadFlagImage(teamhome,vlag1);
-		loadFlagImage(teamuit,vlag2);
+		loadFlagImage(teamhome,vlag2);
+		loadFlagImage(teamuit,vlag1);
 		
 		//Team t1 =  teams.get(0);
 		//Team t2 = teams.get(1);
