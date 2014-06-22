@@ -27,15 +27,10 @@ public class LeagueService extends RequestService{
 			switch (requestCode) {
 			case ServiceProvider.getmatches:
 				ArrayList<Match> matches = new ArrayList<Match>();
-				Integer groupId= receivedBundle.getInt("group_id");
+				
 				int compid=receivedBundle.getInt("compid");
-				
-				if (groupId!=null) {
-				
-					matches=	gateway.getMatchesByGroupId(groupId.intValue());
-				} else {
-				    matches=	gateway.getMatches(compid);
-				}
+				 matches=	gateway.getMatches(compid);
+			
 				
 				
 				

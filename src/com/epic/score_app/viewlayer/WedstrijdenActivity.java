@@ -90,6 +90,7 @@ public class WedstrijdenActivity extends Activity {
 		b.putInt("requestcode", ServiceProvider.getmatches);
 		b.putInt("limit", 20);
 		b.putInt("offset", 0);
+		b.putInt("compid", 1);
 		ServiceProvider.getInsance().getData(b, matchhandler);
 	}
 
