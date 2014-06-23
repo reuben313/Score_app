@@ -1,32 +1,39 @@
 package com.epic.score_app.view;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ListIterator;
 
-import com.epic.score_app.cache.interfaces.Ichacheable;
-import com.epic.score_app.serviceslayer.ServiceProvider;
-
-import domainmodel.Wallof;
 import Utils.Tuple;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.util.LruCache;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
+import com.epic.score_app.serviceslayer.ServiceProvider;
+
+import domainmodel.Wallof;
+
 public class WallOfActivity extends ActionBarActivity {
     private TextView likes,dislikes;
-    private ImageButton like_button,dislike_button;
+    private ImageButton like_button,dislike_button,leftarrow,rightarrow;
     private ImageView mainview;
     private LruCache<String, Bitmap> mMemoryCache;
+    private  int screenWidth;
+    private  int screenHeight;
  
     private ListIterator<Wallof> cursor;
     private Wallof buffer;
@@ -41,16 +48,49 @@ public class WallOfActivity extends ActionBarActivity {
 		dislikes = (TextView) findViewById(R.id.wallof_dislike_label);
 		like_button=(ImageButton) findViewById(R.id.wallof_like_button);
 		like_button=(ImageButton) findViewById(R.id.wallof_like_button);
+		leftarrow = (ImageButton) findViewById(R.id.wall_of_left_arrow);
+		leftarrow.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				loadPrevious();
+				
+			}
+		});
+		rightarrow = (ImageButton) findViewById(R.id.wall_of_right_arrow);
+		rightarrow.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				loadNext();
+				
+			}
+		});
 		mainview = (ImageView) findViewById(R.id.wallof_image);
 		Bundle b = new Bundle();
 		b.putInt("requestcode", ServiceProvider.getWallOf);
 		ServiceProvider.getInsance().getData(b, wallofHandler);
 		init();
+		getscreenDetails();
 
 		
 	}
 	
 	
+	private void getscreenDetails() {
+		 Resources res = this.getResources();  //  Load the resources
+
+		    //  Get available screen size
+		    Display display = getWindowManager().getDefaultDisplay();
+		    int screenWidth = display.getWidth();
+		    int screenHeight = display.getHeight();
+		    
+		
+	}
+
+
 	private void init() {
 		   final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
 
@@ -96,7 +136,8 @@ public class WallOfActivity extends ActionBarActivity {
 				ArrayList<Wallof> walls = new ArrayList<Wallof>();
 				walls=(ArrayList<Wallof>) msg.obj;
 				cursor=walls.listIterator();
-				loadNext();
+				buffer=cursor.next();
+				loadImage();
 				
 				
 				
@@ -112,7 +153,14 @@ public class WallOfActivity extends ActionBarActivity {
 	
 	public void loadNext(){
 		if(cursor.hasNext()){
+			
 			buffer= cursor.next();
+			Wallof _pre= buffer;
+				if(_pre.equals(buffer)&&cursor.hasNext())
+				{
+					buffer= cursor.next();
+				}
+			
 			loadImage();
 			
 		}else{
@@ -123,7 +171,14 @@ public class WallOfActivity extends ActionBarActivity {
 
 	public void loadPrevious(){
 		if (cursor.hasPrevious()) {
+			Wallof _pre;
 			buffer=cursor.previous();
+			 _pre= buffer;
+				if(_pre.equals(buffer)&&cursor.hasPrevious())
+				{
+					buffer= cursor.previous();
+				}
+			Log.i("load previos", "yeahhhhhh");
 			loadImage();
 		} else {
 			Toast.makeText(getApplicationContext(), "end of the list", Toast.LENGTH_LONG).show();
@@ -136,7 +191,12 @@ public class WallOfActivity extends ActionBarActivity {
 	{
 		dislikes.setText(buffer.getDislikes()+"");
 		likes.setText(buffer.getLikes()+"");
+		System.out.println(buffer.getUrl());
 		ServiceProvider.getInsance().getImageFromUrll(mMemoryCache, new Tuple<Ichacheable, ImageView>(buffer,mainview ));
+		int y = (int)(screenHeight*0.75);
+		int x = (int)(screenWidth*0.75);
+		mainview.setMaxHeight(y);
+		mainview.setMaxWidth(x);
 		
 	}
 
