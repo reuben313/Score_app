@@ -3,6 +3,7 @@ package com.epic.score_app.viewlayer;
 import java.util.ArrayList;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -46,7 +47,8 @@ public class ViewTeam extends ActionBarActivity {
 		lijstvanSpelers = (ListView) findViewById(R.id.player_by_team_list);
        adapter = new PlayerItemAdapter(this, pls);
        lijstvanSpelers.setAdapter(adapter);
-		
+       lijstvanSpelers.setDivider(new ColorDrawable(0xff444444));
+       lijstvanSpelers.setDividerHeight(1);		
 	}
 	
 	@Override
