@@ -67,6 +67,9 @@ public class ServiceProvider implements IServiceProvider {
 	
 	public static final int getStandingsByGroepID=15;
 	public static final int getStandingsByGroepID_response=1515;
+	
+	public static final int getWallof_action=16;
+	public static final int getWallof_action_response=1616;
 
 
 
@@ -81,6 +84,8 @@ public class ServiceProvider implements IServiceProvider {
 
 
 	private static ServiceProvider instance=null;
+
+
 
 	
 
@@ -155,6 +160,13 @@ public class ServiceProvider implements IServiceProvider {
 			break;
 
 		case getWallOf:
+			globalService = new GlobalService();
+			globalService.setHandler(handler);
+			globalService.execute(b);
+			break;
+			
+			
+		case getWallof_action:
 			globalService = new GlobalService();
 			globalService.setHandler(handler);
 			globalService.execute(b);

@@ -1,6 +1,7 @@
 package com.epic.score_app.view;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.ListIterator;
 
 import Utils.Tuple;
@@ -38,6 +39,9 @@ public class WallOfActivity extends ActionBarActivity {
     private ListIterator<Wallof> cursor;
     private Wallof buffer;
     private Wallof _buffer=buffer;
+    private LinkedHashMap<String, Wallof> requestQ = new LinkedHashMap<String, Wallof>();
+    
+   
     
     
 	@Override
@@ -47,7 +51,34 @@ public class WallOfActivity extends ActionBarActivity {
 		likes = (TextView) findViewById(R.id.wallof_like_label);
 		dislikes = (TextView) findViewById(R.id.wallof_dislike_label);
 		like_button=(ImageButton) findViewById(R.id.wallof_like_button);
-		like_button=(ImageButton) findViewById(R.id.wallof_like_button);
+		like_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Bundle b = new Bundle();
+				b.putLong("wall_id",buffer.getWallofID());
+				b.putBoolean("hit", true);
+				b.putInt("requestcode", ServiceProvider.getWallof_action);
+				requestQ.put(buffer.getCacheName(), buffer);
+				ServiceProvider.getInsance().getData(b, wallofHandler);
+				
+			}
+		});
+		dislike_button=(ImageButton) findViewById(R.id.wallof_dislike_button);
+		dislike_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Bundle b = new Bundle();
+				b.putLong("wall_id",buffer.getWallofID());
+				b.putBoolean("hit", false);
+				b.putInt("requestcode", ServiceProvider.getWallof_action);
+				requestQ.put(buffer.getCacheName(), buffer);
+				ServiceProvider.getInsance().getData(b, wallofHandler);
+				
+			}
+		});
+		
 		leftarrow = (ImageButton) findViewById(R.id.wall_of_left_arrow);
 		leftarrow.setOnClickListener(new OnClickListener() {
 			
@@ -140,6 +171,19 @@ public class WallOfActivity extends ActionBarActivity {
 				loadImage();
 				
 				
+				
+			}else if(msg.what==ServiceProvider.getWallof_action_response)
+			{
+				Wallof w = (Wallof) msg.obj;
+				
+				Wallof inque = requestQ.get(w.getCacheName());
+				inque.setLikes(w.getLikes());
+				inque.setDislikes(w.getDislikes());
+				if(buffer.equals(inque)){
+					likes.setText(w.getLikes()+"");
+					dislikes.setText(w.getDislikes()+"");
+					
+				}
 				
 			}
 			

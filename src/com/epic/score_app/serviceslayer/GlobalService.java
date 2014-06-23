@@ -50,6 +50,21 @@ public class GlobalService extends RequestService{
 					
 					
 				break;
+				
+				
+                case ServiceProvider.getWallof_action:
+					 Wallof wallof;
+					long wallid = receivedBundle.getLong("wall_id");
+					boolean hit = receivedBundle.getBoolean("hit");
+					 wallof=  gateway.update_Wallof(wallid, hit);
+					
+					Message msg_wallof = new Message();
+					msg_wallof.what= ServiceProvider.getWallof_action_response;
+					msg_wallof.obj=wallof;
+					handler.sendMessage(msg_wallof);
+					
+					
+				break;
 					
 					
 

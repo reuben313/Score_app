@@ -187,7 +187,12 @@ public void testGetStandings()
 	LeagueGateway gateway = new LeagueGateway(null);
 	ArrayList<Standing> standings = new ArrayList<Standing>();
 	standings=gateway.getStandings(1);
-	assertTrue(standings.size()>1);
+	for (Standing standing : standings) {
+		assertEquals(0,standing.getDraw());
+		assertEquals(0,standing.getPoint());
+		assertEquals(0,standing.getWin());
+		assertEquals(0,standing.getLose());
+	}
 	
 	
 
