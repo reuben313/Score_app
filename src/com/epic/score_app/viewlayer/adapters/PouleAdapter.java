@@ -62,11 +62,11 @@ public class PouleAdapter extends ArrayAdapter<Group> {
 		Group g = list.get(position);
 		ArrayList<Team> teams = g.getGroupTeams();
 		TextView poule = (TextView)view.findViewById(R.id.textView0);
-		TextView team1 = (TextView)view.findViewById(R.id.news_Title);
+		TextView team1 = (TextView)view.findViewById(R.id.textView1);
 		TextView team2 = (TextView)view.findViewById(R.id.textView2);
 		TextView team3 = (TextView)view.findViewById(R.id.textView3);
 		TextView team4 = (TextView)view.findViewById(R.id.textView4);
-		ImageView vlag1 = (ImageView)view.findViewById(R.id.news_desc_image);
+		ImageView vlag1 = (ImageView)view.findViewById(R.id.imageView1);
 		ImageView vlag2 = (ImageView)view.findViewById(R.id.imageView2);
 		ImageView vlag3 = (ImageView)view.findViewById(R.id.imageView3);
 		ImageView vlag4 = (ImageView)view.findViewById(R.id.imageView4);
