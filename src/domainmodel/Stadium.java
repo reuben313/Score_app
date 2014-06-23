@@ -1,15 +1,22 @@
 package domainmodel;
 
+
+
+import java.io.Serializable;
+
 import com.epic.score_app.cache.interfaces.Ichacheable;
 
 
 
-public class Stadium implements Ichacheable{
+
+
+public class Stadium implements Ichacheable, Serializable {
 	private String name;
 	private String description;
 	private String photo_link;
 	private int competition_id;
-	
+	private long stadium_id;
+
 
 	public String getName() {
 		return name;
@@ -38,12 +45,18 @@ public class Stadium implements Ichacheable{
 	@Override
 	public String getCacheName() {
 		// TODO Auto-generated method stub
-		return null;
+		return "stadium_" + getStadium_id() + ".png";
 	}
 	@Override
 	public String getUrl() {
 		// TODO Auto-generated method stub
-		return null;
+		return getPhoto_link();
 	}
+	public long getStadium_id() {
+		return stadium_id;
+	}
+	public void setStadium_id(long stadium_id) {
+		this.stadium_id = stadium_id;
+	}
+	
 }
-

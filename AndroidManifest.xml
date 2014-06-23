@@ -150,6 +150,10 @@
             android:name="com.epic.score_app.viewlayer.ViewMatch"
             android:label="@string/title_activity_view_match" >
         </activity>
+        <activity
+            android:name="com.epic.score_app.viewlayer.ViewStadium"
+            android:label="@string/title_activity_view_stadium" >
+        </activity>
     </application>
 
 </manifest>
