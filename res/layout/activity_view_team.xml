@@ -3,7 +3,9 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:adjustViewBounds="true"
+    android:background="@drawable/grass_texture241"
+    android:scaleType="fitCenter">
 
     <ListView
         android:id="@+id/player_by_team_list"
