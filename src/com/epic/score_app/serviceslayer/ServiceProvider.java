@@ -64,6 +64,9 @@ public class ServiceProvider implements IServiceProvider {
 	
 	public static final int getNewsDescription=14;
 	public static final int getNewsDescription_response=1414;
+	
+	public static final int getStandingsByGroepID=15;
+	public static final int getStandingsByGroepID_response=1515;
 
 
 
@@ -78,6 +81,8 @@ public class ServiceProvider implements IServiceProvider {
 
 
 	private static ServiceProvider instance=null;
+
+	
 
 	
 
@@ -164,6 +169,13 @@ public class ServiceProvider implements IServiceProvider {
 			break;
 			
 		case getStandings:
+			leagueservice = new LeagueService();
+			leagueservice.setHandler(handler);
+			leagueservice.execute(b);
+			break;
+			
+			
+		case getStandingsByGroepID:
 			leagueservice = new LeagueService();
 			leagueservice.setHandler(handler);
 			leagueservice.execute(b);

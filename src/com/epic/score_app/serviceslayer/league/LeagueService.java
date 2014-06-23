@@ -82,6 +82,19 @@ public class LeagueService extends RequestService{
 				
 				
 				
+			case ServiceProvider.getStandingsByGroepID:
+				 
+			int	gid=receivedBundle.getInt("group_id");
+				ArrayList<Standing> standingsG = new ArrayList<Standing>();
+			    standingsG=gateway.getStandings(1);
+				Message msgstandingsG = new Message();
+				msgstandingsG.what= ServiceProvider.getStandingsByGroepID_response;
+				msgstandingsG.obj=standingsG;
+				handler.sendMessage(msgstandingsG);
+				break;
+				
+				
+				
 			
 				
 				
