@@ -4,21 +4,27 @@ import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.adapters.MatchItemAdapter;
 
 import domainmodel.Match;
+import domainmodel.Player;
 
 public class WedstrijdenActivity extends Activity {
 	private ArrayList<Match> match= new ArrayList<Match>();
@@ -36,7 +42,7 @@ public class WedstrijdenActivity extends Activity {
 		wedstrijden_lijst.setAdapter(adapter);
 		wedstrijden_lijst.setDivider(new ColorDrawable(0xff444444));
 		wedstrijden_lijst.setDividerHeight(1);
-		//wedstrijden_lijst.setOnItemClickListener(onplayerClick);
+		wedstrijden_lijst.setOnItemClickListener(onmatchClick);
 		setupActionBar();
 	}
 	
@@ -105,6 +111,23 @@ public class WedstrijdenActivity extends Activity {
 			}
 		}
 	};	
+	private OnItemClickListener onmatchClick= new OnItemClickListener(){
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+				long arg3) {
+
+			Match selectedMatch= adapter.getItem(pos);
+			
+			Intent intent = new Intent(WedstrijdenActivity.this,ViewMatch.class);
+	
+
+			startActivity(intent);
+
+		}
+
+
+	};
 
 
 }

@@ -42,5 +42,6 @@
 
     <string name="title_activity_news_description">NewsDescription</string>
     <string name="title_activity_wall_of">WallOfActivity</string>
+    <string name="title_activity_view_match">ViewMatch</string>
 
 </resources>

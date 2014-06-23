@@ -146,6 +146,10 @@
             android:name="com.epic.score_app.view.WallOfActivity"
             android:label="@string/title_activity_wall_of" >
         </activity>
+        <activity
+            android:name="com.epic.score_app.viewlayer.ViewMatch"
+            android:label="@string/title_activity_view_match" >
+        </activity>
     </application>
 
 </manifest>

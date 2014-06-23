@@ -78,6 +78,8 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		TextView tijd= (TextView)view.findViewById(R.id.tijd);
 		TextView thuis = (TextView)view.findViewById(R.id.thuisploeg);
 		TextView uit = (TextView)view.findViewById(R.id.uitploeg);
+		TextView thuisscore = (TextView)view.findViewById(R.id.homescore);
+		TextView uitscore = (TextView)view.findViewById(R.id.visitorscore);
 		ImageView vlag1 = (ImageView)view.findViewById(R.id.team1_flag);
 		ImageView vlag2 = (ImageView)view.findViewById(R.id.team2_flag);
 		
@@ -88,7 +90,13 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		Team teamuit = _match.getTeamVisitor();
 		thuis.setText(teamhome.getName());
 		uit.setText(teamuit.getName());
-
+		if(_match.getMatchStatus() == MATCH_STATUS.PLAYED){
+		thuisscore.setText("" + _match.getTeam_home_result());
+		uitscore.setText("" + _match.getTeam_visitor_result());
+		}else{
+			thuisscore.setText("");
+			uitscore.setText("");
+		}
 		loadFlagImage(teamuit,vlag1);
 		loadFlagImage(teamhome,vlag2);
         return view;

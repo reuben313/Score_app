@@ -66,4 +66,22 @@
         android:layout_alignTop="@+id/team1_flag"
         android:src="@drawable/settings" />
 
+    <TextView
+        android:id="@+id/visitorscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/team2_flag"
+        android:layout_toLeftOf="@+id/versus"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/homescore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/visitorscore"
+        android:layout_alignBottom="@+id/visitorscore"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/versus"
+        android:text="TextView" />
+
 </RelativeLayout>
