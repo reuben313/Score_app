@@ -25,6 +25,7 @@ public class PouleDetailActivity extends Activity {
 		requestBundle.putInt("requestcode", ServiceProvider.getStandingsByGroepID);
 		requestBundle.putInt("group_id",(int) g.getGroupId());
 		
+		TextView land1 = (TextView)findViewById(R.id.textView7);
 		
 		TextView p = (TextView)findViewById(R.id.textView1);
 		p.setText(g.getName());
