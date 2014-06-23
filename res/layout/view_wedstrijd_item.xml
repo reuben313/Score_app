@@ -9,14 +9,14 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignParentLeft="true"
-              android:textSize="20sp"
+              android:textSize="15sp"
               android:text="match datum" />
           
               <TextView
         android:id="@+id/tijd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_alignParentRight="true"
         android:text="tijd" />
           
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/uitploeg"
         android:layout_alignBottom="@+id/uitploeg"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_centerHorizontal="true"
         android:text="VS" />
 
@@ -40,7 +40,7 @@
         android:layout_alignBaseline="@+id/thuisploeg"
         android:layout_alignBottom="@+id/thuisploeg"
         android:layout_alignParentRight="true"
-        android:textSize="20sp"
+        android:textSize="12sp"
         android:text="uitploeg" />
 
     <ImageView
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/team2_flag"
         android:layout_toLeftOf="@+id/versus"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:text="TextView" />
 
     <TextView
@@ -76,7 +76,7 @@
         android:layout_alignBaseline="@+id/visitorscore"
         android:layout_alignBottom="@+id/visitorscore"
         android:layout_marginLeft="2dp"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_toRightOf="@+id/versus"
         android:text="TextView" />
 
@@ -88,6 +88,6 @@
         android:layout_below="@+id/matchdatum"
         android:layout_marginTop="15dp"
         android:text="thuisploeg"
-        android:textSize="20sp" />
+        android:textSize="12sp" />
 
 </RelativeLayout>
