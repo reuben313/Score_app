@@ -4,21 +4,27 @@ import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.adapters.PouleAdapter;
 
 import domainmodel.Group;
+import domainmodel.Player;
 
 public class PouleActivity extends Activity {
 	private ArrayList<Group> poule= new ArrayList<Group>();
@@ -30,11 +36,11 @@ public class PouleActivity extends Activity {
 		// Show the Up button in the action bar.
 		
 		adapter = new PouleAdapter(this, poule);
-		ListView list = (ListView)findViewById(R.id.ListView1);
+		final ListView list = (ListView)findViewById(R.id.ListView1);
 		list.setAdapter(adapter);
 		list.setDivider(new ColorDrawable(0xff444444));
 		list.setDividerHeight(1);
-		
+		list.setOnItemClickListener(onGroupClick);
 		setupActionBar();
 	}
 
@@ -48,6 +54,26 @@ public class PouleActivity extends Activity {
 		}
 	}
 
+	private OnItemClickListener onGroupClick= new OnItemClickListener(){
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+				long arg3) {
+
+			Group selectedGroup= adapter.getItem(pos);
+			Log.i("selected group id", selectedGroup.getGroupId()+"");
+			Intent intent = new Intent(PouleActivity.this,PouleDetailActivity.class);
+			Bundle b = new Bundle();
+			//hotfix
+			b.putSerializable("group", selectedGroup);
+			
+			intent.putExtras(b);
+			startActivity(intent);
+
+		}
+
+
+	};
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

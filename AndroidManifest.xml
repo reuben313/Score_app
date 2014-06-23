@@ -97,6 +97,11 @@
             android:label="@string/title_activity_temp_view_players"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.epic.score_app.viewlayer.PouleDetailActivity"
+            android:label="Poule Info"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <service
             android:name="com.epic.score_app.view.services.NotificationProvider"

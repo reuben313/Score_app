@@ -17,8 +17,6 @@ import android.widget.TextView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
-import com.epic.score_app.viewlayer.PouleActivity;
-
 import domainmodel.Group;
 import domainmodel.Team;
 
