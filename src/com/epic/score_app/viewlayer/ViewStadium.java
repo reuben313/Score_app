@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.LruCache;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
@@ -17,7 +16,6 @@ import com.epic.score_app.cache.interfaces.Ichacheable;
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 
-import domainmodel.News;
 import domainmodel.Stadium;
 
 public class ViewStadium extends Activity {
@@ -26,6 +24,7 @@ public class ViewStadium extends Activity {
 	    private ListView desc;
 		private LruCache<String, Bitmap> mMemoryCache;
 		ArrayAdapter<String> arrayAdapter;
+		private Stadium stadium;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class ViewStadium extends Activity {
 		
 		Intent intent= getIntent();
 		Bundle b = intent.getExtras();
-		Stadium stadium = (Stadium) b.getSerializable("stadium");
+		 stadium = (Stadium) b.getSerializable("stadium");
 		
 		title=(TextView)findViewById(R.id.news_desc_title);
 		photo=(ImageView) findViewById(R.id.news_desc_image);
@@ -43,13 +42,14 @@ public class ViewStadium extends Activity {
 		
 		ServiceProvider.getInsance().getImageFromUrll(mMemoryCache, new Tuple<Ichacheable, ImageView>(stadium, photo));
 		desc=(ListView) findViewById(R.id.news_desc_description);
-		String arr[] = {""};
-		arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
+		
+		String paragraph[]= stadium.getDescription().split("<p>");
+		arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, paragraph);
 		desc.setAdapter(arrayAdapter);
-		Bundle sendBundle = new Bundle();
-		sendBundle.putInt("requestcode", ServiceProvider.getStadiums);
-		sendBundle.putLong("stadium_id", stadium.getStadium_id());
-		ServiceProvider.getInsance().getData(sendBundle,stadiumDescHandler );
+		
+		
+		desc.setAdapter(arrayAdapter);
+		
 
 	}
 
@@ -77,21 +77,5 @@ public class ViewStadium extends Activity {
 	}
 
 	
-	private Handler stadiumDescHandler = new Handler(){
-		public void handleMessage(android.os.Message msg) 
-		{
-		if(msg.what==ServiceProvider.getStadiums_response){
-			Stadium stadium = (Stadium) msg.obj;
-			
-			String paragraph[]= stadium.getDescription().split("<p>");
-			arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, paragraph);
-			desc.setAdapter(arrayAdapter);
-			
-			
-			
-			
-		}
-			
-		};
-	};
+
 }

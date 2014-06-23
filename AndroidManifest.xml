@@ -152,7 +152,9 @@
         </activity>
         <activity
             android:name="com.epic.score_app.viewlayer.ViewStadium"
-            android:label="@string/title_activity_view_stadium" >
+            android:label="@string/title_activity_view_stadium" 
+            android:screenOrientation="portrait"
+            >
         </activity>
     </application>
 

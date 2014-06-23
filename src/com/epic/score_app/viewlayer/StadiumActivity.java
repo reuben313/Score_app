@@ -13,14 +13,13 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.adapters.StadiumItemAdapter;
 
-import domainmodel.Player;
 import domainmodel.Stadium;
 
 public class StadiumActivity extends Activity {
