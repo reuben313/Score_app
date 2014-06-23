@@ -53,18 +53,17 @@
         android:id="@+id/team1_flag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tijd"
-        android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/versus"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/uitploeg"
+        android:layout_marginTop="15dp"
         android:src="@drawable/settings" />
 
     <ImageView
         android:id="@+id/team2_flag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/matchdatum"
-        android:layout_marginRight="15dp"
-        android:layout_toLeftOf="@+id/versus"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/team1_flag"
         android:src="@drawable/settings" />
 
 </RelativeLayout>
