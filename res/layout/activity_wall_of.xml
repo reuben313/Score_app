@@ -2,6 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:adjustViewBounds="true"
+    android:background="@drawable/grass_texture241"
+    android:scaleType="fitCenter"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -13,8 +16,8 @@
        
            <ImageView
         android:id="@+id/wallof_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
        
         />
 
@@ -34,16 +37,18 @@
 
          <ImageButton
             android:id="@+id/wall_of_left_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+           android:background="@color/abc_search_url_text_normal"
             android:src="@drawable/abc_ic_ab_back_holo_light" />
          
         
         <ImageButton
             android:id="@+id/wallof_like_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/abc_search_url_text_normal"
             android:src="@drawable/abc_ic_cab_done_holo_light" />
 
         <TextView
@@ -60,14 +65,17 @@
 
         <ImageButton
             android:id="@+id/wallof_dislike_button"
-            android:layout_width="61dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="@color/abc_search_url_text_normal"
             android:src="@drawable/abc_ic_clear_search_api_holo_light" />
       
          <ImageButton
                android:id="@+id/wall_of_right_arrow"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:layout_marginLeft="5dp"
+               android:background="@color/abc_search_url_text_normal"
                android:layout_weight="0.84"
                android:src="@drawable/arrow" />
         
