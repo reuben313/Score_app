@@ -27,6 +27,7 @@ import com.epic.score_app.viewlayer.ViewPlayer;
 
 import domainmodel.Group;
 import domainmodel.Match;
+import domainmodel.Match.MATCH_STATUS;
 import domainmodel.News;
 import domainmodel.Player;
 import domainmodel.Team;

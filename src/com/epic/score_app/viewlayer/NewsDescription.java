@@ -6,10 +6,13 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.util.LruCache;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.epic.score_app.cache.interfaces.Ichacheable;
@@ -21,8 +24,10 @@ import domainmodel.News;
 public class NewsDescription extends ActionBarActivity {
     private TextView title;
     private ImageView photo;
-    private TextView desc;
+    private ListView desc;
 	private LruCache<String, Bitmap> mMemoryCache;
+	ArrayAdapter<String> arrayAdapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,9 +38,12 @@ public class NewsDescription extends ActionBarActivity {
 		News news = (News) b.getSerializable("news");
 		title=(TextView)findViewById(R.id.news_desc_title);
 		photo=(ImageView) findViewById(R.id.news_desc_image);
-		
+		title.setText(news.getTitle());
 		ServiceProvider.getInsance().getImageFromUrll(mMemoryCache, new Tuple<Ichacheable, ImageView>(news, photo));
-		desc=(TextView) findViewById(R.id.news_desc_description);
+		desc=(ListView) findViewById(R.id.news_desc_description);
+		String arr[] = {""};
+		arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
+		desc.setAdapter(arrayAdapter);
 		Bundle sendBundle = new Bundle();
 		sendBundle.putInt("requestcode", ServiceProvider.getNewsDescription);
 		sendBundle.putLong("news_id", news.getNews_id());
@@ -85,7 +93,11 @@ private Handler newsDescHandler = new Handler(){
 	{
 	if(msg.what==ServiceProvider.getNewsDescription_response){
 		News news = (News) msg.obj;
-		desc.setText(news.getContent());
+		
+		String paragraph[]= news.getContent().split("<p>");
+		arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, paragraph);
+		desc.setAdapter(arrayAdapter);
+		
 		
 		
 		
