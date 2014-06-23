@@ -8,12 +8,12 @@
     android:scaleType="fitCenter">
     
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/view_team_name_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
-        android:text="Land Naam"
+        android:text=""
         android:textSize="20sp" />
 
     <TextView

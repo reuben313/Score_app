@@ -9,15 +9,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.util.LruCache;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,7 +21,6 @@ import android.widget.TextView;
 import com.epic.score_app.cache.interfaces.Ichacheable;
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
-import com.epic.score_app.viewlayer.adapters.PlayerByTeamAdapter;
 import com.epic.score_app.viewlayer.adapters.PlayerItemAdapter;
 
 import domainmodel.Player;
@@ -41,6 +36,7 @@ public class ViewTeam extends ActionBarActivity {
 	private ImageView flag;
 	private LruCache<String, Bitmap> mMemoryCache;
 
+
 	
 
 	@Override
@@ -50,7 +46,8 @@ public class ViewTeam extends ActionBarActivity {
 		Intent intent = getIntent();
 		Bundle b = intent.getExtras();
 		team= (Team)b.getSerializable("team");
-		name = (TextView) findViewById(R.id.name);
+		name = (TextView) findViewById(R.id.view_team_name_label);
+		name.setText(team.getName());
 		players = (TextView) findViewById(R.id.players);
 		lijstvanSpelers = (ListView) findViewById(R.id.player_by_team_list);
        adapter = new PlayerItemAdapter(this, pls);
