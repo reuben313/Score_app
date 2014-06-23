@@ -137,6 +137,10 @@
             android:name="com.epic.score_app.viewlayer.NewsDescription"
             android:label="@string/title_activity_news_description" >
         </activity>
+        <activity
+            android:name="com.epic.score_app.view.WallOfActivity"
+            android:label="@string/title_activity_wall_of" >
+        </activity>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.view.R.id;
 import com.epic.score_app.view.R.layout;
+import com.epic.score_app.view.WallOfActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -79,7 +80,7 @@ public class MainActivity extends Activity {
 		
 		media.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
-				Intent i = new Intent(MainActivity.this, MediaActivity.class);
+				Intent i = new Intent(MainActivity.this, WallOfActivity.class);
 				startActivity(i);		
 			}			
 		});

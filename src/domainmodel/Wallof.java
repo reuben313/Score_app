@@ -1,6 +1,8 @@
 package domainmodel;
 
-public class Wallof {
+import com.epic.score_app.cache.interfaces.Ichacheable;
+
+public class Wallof implements Ichacheable{
   private long wallofID;
   private int likes;
   private int dislikes;
@@ -39,5 +41,15 @@ public String getPhotolink() {
 }
 public void setPhotolink(String photolink) {
 	this.photolink = photolink;
+}
+@Override
+public String getCacheName() {
+	// TODO Auto-generated method stub
+	return "wallof_"+wallofID+".png";
+}
+@Override
+public String getUrl() {
+	// TODO Auto-generated method stub
+	return photolink;
 }
 }

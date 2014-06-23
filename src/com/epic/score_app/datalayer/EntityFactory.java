@@ -479,7 +479,8 @@ public class EntityFactory {
 			   int likes=wallof.getInt("like");
 			   int dislikes=wallof.getInt("dislike");
 			   int photoId=wallof.getInt("photo_id");
-			   String photolink="defualt";
+			 
+			   String photolink= wallof.getString("photolink");
 			   
 			wlof.setWallofID(wallofID);
 			wlof.setDislikes(dislikes);
