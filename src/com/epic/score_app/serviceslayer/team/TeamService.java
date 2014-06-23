@@ -81,6 +81,18 @@ protected void executeRequest(Bundle receivedBundle) {
 			
 			
 		break;
+		
+		
+		case ServiceProvider.getTeamPlayers:
+			gateway = new TeamGateway(handler);
+			long team_id=receivedBundle.getLong("team_id");
+			ArrayList<Player> team_players = new ArrayList<Player>();
+			team_players=gateway.getPlayers((int)team_id);
+			Message msgstandings = new Message();
+			msgstandings.what= ServiceProvider.getTeamPlayers_response;
+			msgstandings.obj= team_players;
+			handler.sendMessage(msgstandings);
+			break;
 
 		default:
 			break;

@@ -72,6 +72,7 @@ public class TeamGateway extends JsonService {
 	public ArrayList<Player> getPlayers(int TeamID) {
 		String link = ServiceProvider.Host+"/team.php?teamid="+TeamID;
 		JSONArray array = GetData(link);
+		Log.i("getting players", array.length()+"");
 		ArrayList<Player> players = factory.getPlayers(array);
 		return players;
 	}

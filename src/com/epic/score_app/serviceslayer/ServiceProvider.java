@@ -138,9 +138,9 @@ public class ServiceProvider implements IServiceProvider {
 			break;
 
 		case getTeamPlayers:
-			leagueservice = new LeagueService();
-			leagueservice.setHandler(handler);
-			leagueservice.execute(b);
+			teamservice = new TeamService();
+			teamservice.setHandler(handler);
+			teamservice.execute(b);
 			break;
 
 		case getNews:

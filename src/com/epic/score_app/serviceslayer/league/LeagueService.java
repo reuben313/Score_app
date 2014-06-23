@@ -11,6 +11,7 @@ import com.epic.score_app.serviceslayer.ServiceProvider;
 
 import domainmodel.Group;
 import domainmodel.Match;
+import domainmodel.Player;
 import domainmodel.Stadium;
 import domainmodel.Standing;
 
@@ -78,6 +79,10 @@ public class LeagueService extends RequestService{
 				msgstandings.obj=standings;
 				handler.sendMessage(msgstandings);
 				break;
+				
+				
+				
+			
 				
 				
 
