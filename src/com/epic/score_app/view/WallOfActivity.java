@@ -1,6 +1,8 @@
 package com.epic.score_app.view;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 import com.epic.score_app.cache.interfaces.Ichacheable;
 import com.epic.score_app.serviceslayer.ServiceProvider;
@@ -18,12 +20,17 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WallOfActivity extends ActionBarActivity {
     private TextView likes,dislikes;
     private ImageButton like_button,dislike_button;
     private ImageView mainview;
     private LruCache<String, Bitmap> mMemoryCache;
+ 
+    private ListIterator<Wallof> cursor;
+    private Wallof buffer;
+    private Wallof _buffer=buffer;
     
     
 	@Override
@@ -88,10 +95,10 @@ public class WallOfActivity extends ActionBarActivity {
 			if (msg.what==ServiceProvider.getWallOf_response) {
 				ArrayList<Wallof> walls = new ArrayList<Wallof>();
 				walls=(ArrayList<Wallof>) msg.obj;
-				Wallof w = walls.get(0);
-				dislikes.setText(w.getDislikes()+"");
-				likes.setText(w.getLikes()+"");
-				ServiceProvider.getInsance().getImageFromUrll(mMemoryCache, new Tuple<Ichacheable, ImageView>(w,mainview ));
+				cursor=walls.listIterator();
+				loadNext();
+				
+				
 				
 			}
 			
@@ -100,6 +107,38 @@ public class WallOfActivity extends ActionBarActivity {
 		};
 		
 	};
+	
+	
+	
+	public void loadNext(){
+		if(cursor.hasNext()){
+			buffer= cursor.next();
+			loadImage();
+			
+		}else{
+			Toast.makeText(getApplicationContext(), "end of the list", Toast.LENGTH_LONG).show();
+		}
+		
+	}
+
+	public void loadPrevious(){
+		if (cursor.hasPrevious()) {
+			buffer=cursor.previous();
+			loadImage();
+		} else {
+			Toast.makeText(getApplicationContext(), "end of the list", Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	
+	
+	public void loadImage()
+	{
+		dislikes.setText(buffer.getDislikes()+"");
+		likes.setText(buffer.getLikes()+"");
+		ServiceProvider.getInsance().getImageFromUrll(mMemoryCache, new Tuple<Ichacheable, ImageView>(buffer,mainview ));
+		
+	}
 
 
 

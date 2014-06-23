@@ -1,7 +1,6 @@
 package com.epic.score_app.serviceslayer.team;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import android.os.Bundle;
 import android.os.Message;

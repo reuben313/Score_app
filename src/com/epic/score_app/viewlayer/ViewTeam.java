@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
+import com.epic.score_app.viewlayer.adapters.PlayerByTeamAdapter;
 import com.epic.score_app.viewlayer.adapters.PlayerItemAdapter;
 
 import domainmodel.Player;
@@ -29,7 +30,7 @@ public class ViewTeam extends ActionBarActivity {
 	private String nm;
 	private ArrayList<Player> pls= new ArrayList<Player>();
 	private TextView name, players;
-	private PlayerItemAdapter adapter;
+	private PlayerByTeamAdapter adapter;
 	private ListView lijstvanSpelers;
 
 	
@@ -44,7 +45,7 @@ public class ViewTeam extends ActionBarActivity {
 		name = (TextView) findViewById(R.id.name);
 		players = (TextView) findViewById(R.id.players);
 		lijstvanSpelers = (ListView) findViewById(R.id.player_by_team_list);
-       adapter = new PlayerItemAdapter(this, pls);
+       adapter = new PlayerByTeamAdapter(this, pls,team);
        lijstvanSpelers.setAdapter(adapter);
 		
 	}
