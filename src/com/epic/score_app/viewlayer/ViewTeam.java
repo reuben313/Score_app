@@ -14,9 +14,12 @@ import android.util.Log;
 import android.util.LruCache;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.epic.score_app.cache.interfaces.Ichacheable;
 import com.epic.score_app.serviceslayer.ServiceProvider;
@@ -53,7 +56,8 @@ public class ViewTeam extends ActionBarActivity {
        adapter = new PlayerItemAdapter(this, pls);
        lijstvanSpelers.setAdapter(adapter);
        lijstvanSpelers.setDivider(new ColorDrawable(0xff444444));
-       lijstvanSpelers.setDividerHeight(1);	
+       lijstvanSpelers.setDividerHeight(1);
+       lijstvanSpelers.setOnItemClickListener(onplayerClick);
        flag= (ImageView)findViewById(R.id.view_team_flag_image);
        init();
 	}
@@ -134,11 +138,26 @@ private Handler handler = new Handler(){
 	};
 	
 	
-	
+	private OnItemClickListener onplayerClick= new OnItemClickListener(){
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+				long arg3) {
+
+			Player selectedPlayer= adapter.getItem(pos);
+			Log.i("selected player id", selectedPlayer.getPlayer_id()+"");
+			Intent intent = new Intent(ViewTeam.this,ViewPlayer.class);
+			Bundle b = new Bundle();
+			//hotfix
+			b.putSerializable("player", selectedPlayer);
+			//b.putParcelable("player", selectedPlayer);
+			intent.putExtras(b);
+
+			startActivity(intent);
+
+		}
+
+
+	};
 
 }
