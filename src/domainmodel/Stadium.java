@@ -1,8 +1,10 @@
 package domainmodel;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
 
 
-public class Stadium {
+
+public class Stadium implements Ichacheable{
 	private String name;
 	private String description;
 	private String photo_link;
@@ -32,6 +34,16 @@ public class Stadium {
 	}
 	public void setCompetition_id(int competition_id) {
 		this.competition_id = competition_id;
+	}
+	@Override
+	public String getCacheName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getUrl() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 
