@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/list_selector"
+    android:adjustViewBounds="true"
+    android:background="@drawable/grass_texture241"
+    android:scaleType="fitCenter"
     android:orientation="horizontal"
     android:id="@+id/container"
     android:padding="5dip" >
