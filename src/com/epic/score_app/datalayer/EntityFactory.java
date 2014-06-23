@@ -507,11 +507,13 @@ public ArrayList<Stadium> getStaduims(JSONArray values){
 			Stadium stadium = new Stadium();
 			String name =  jstadium.getString("name");
 			String description = jstadium.getString("desc");
+			long stadium_id = jstadium.getLong("STADIUM_ID");
 			String link = jstadium.getString("link");
 			
 			stadium.setName(name);
 			stadium.setDescription(description);
 			stadium.setPhoto_link(link);
+			stadium.setStadium_id(stadium_id);
 			stadiums.add(stadium);
 		
 			

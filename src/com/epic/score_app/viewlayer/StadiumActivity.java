@@ -4,17 +4,23 @@ import java.util.ArrayList;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.adapters.StadiumItemAdapter;
 
+import domainmodel.Player;
 import domainmodel.Stadium;
 
 public class StadiumActivity extends Activity {
@@ -32,6 +38,7 @@ public class StadiumActivity extends Activity {
 		stadion_list.setAdapter(adapter);
 		stadion_list.setDivider(new ColorDrawable(0xff444444));
 		stadion_list.setDividerHeight(1);
+		stadion_list.setOnItemClickListener(onstadiumClick);
 		setupActionBar();
 	}
 	
@@ -74,5 +81,28 @@ public class StadiumActivity extends Activity {
 				break;
 			}
 		}
+	};
+	
+	
+	private OnItemClickListener onstadiumClick= new OnItemClickListener(){
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int pos,
+				long arg3) {
+
+			Stadium selectedStadium= adapter.getItem(pos);
+			Log.i("selected stadium id", selectedStadium.getStadium_id()+"");
+			Intent intent = new Intent(StadiumActivity.this,ViewStadium.class);
+			Bundle b = new Bundle();
+			//hotfix
+			b.putSerializable("stadium", selectedStadium);
+			//b.putParcelable("player", selectedPlayer);
+			intent.putExtras(b);
+
+			startActivity(intent);
+
+		}
+
+
 	};
 }
