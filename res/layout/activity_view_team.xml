@@ -33,7 +33,7 @@
     </ListView>
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/view_team_flag_image"
         android:layout_width="match_parent"
         android:layout_height="161dp"
         android:layout_marginTop="35dp"

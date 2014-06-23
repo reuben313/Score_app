@@ -2,7 +2,9 @@ package com.epic.score_app.viewlayer;
 
 import java.util.ArrayList;
 
+import Utils.Tuple;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,14 +12,17 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.epic.score_app.cache.interfaces.Ichacheable;
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
 import com.epic.score_app.viewlayer.adapters.PlayerByTeamAdapter;
@@ -31,8 +36,10 @@ public class ViewTeam extends ActionBarActivity {
 	private String nm;
 	private ArrayList<Player> pls= new ArrayList<Player>();
 	private TextView name, players;
-	private PlayerByTeamAdapter adapter;
+	private PlayerItemAdapter adapter;
 	private ListView lijstvanSpelers;
+	private ImageView flag;
+	private LruCache<String, Bitmap> mMemoryCache;
 
 	
 
@@ -46,10 +53,31 @@ public class ViewTeam extends ActionBarActivity {
 		name = (TextView) findViewById(R.id.name);
 		players = (TextView) findViewById(R.id.players);
 		lijstvanSpelers = (ListView) findViewById(R.id.player_by_team_list);
-       adapter = new PlayerByTeamAdapter(this, pls,team);
+       adapter = new PlayerItemAdapter(this, pls);
        lijstvanSpelers.setAdapter(adapter);
        lijstvanSpelers.setDivider(new ColorDrawable(0xff444444));
-       lijstvanSpelers.setDividerHeight(1);		
+       lijstvanSpelers.setDividerHeight(1);	
+       flag= (ImageView)findViewById(R.id.view_team_flag_image);
+       init();
+	}
+	
+	
+	
+	private void init() {
+		   final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+
+		    // Use 1/8th of the available memory for this memory cache.
+		    final int cacheSize = maxMemory / 8;
+
+		    mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
+		        @Override
+		        protected int sizeOf(String key, Bitmap bitmap) {
+		            // The cache size will be measured in kilobytes rather than
+		            // number of items.
+		            return bitmap.getByteCount() / 1024;
+		        }
+		    };
+		
 	}
 	
 	@Override
@@ -59,6 +87,8 @@ public class ViewTeam extends ActionBarActivity {
 		b.putInt("requestcode", ServiceProvider.getTeamPlayers);
 		b.putLong("team_id", team.getTeamId());
 		ServiceProvider.getInsance().getData(b,handler);
+		ServiceProvider.getInsance().getImageFromUrll(mMemoryCache, new Tuple<Ichacheable, ImageView>(team, flag));
+		
 		
 		
 		super.onStart();
