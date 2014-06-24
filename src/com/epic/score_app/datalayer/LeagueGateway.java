@@ -100,6 +100,17 @@ public class LeagueGateway extends JsonService{
         return standings;	
 	}
 	
+	public ArrayList<Standing> getStandingsByGroupid(int gid){
+		ArrayList<Standing> standings = new ArrayList<Standing>();
+		JSONArray array = null;
+		String link= ServiceProvider.Host+"/stats.php?gid="+gid;
+		EntityFactory factory = new EntityFactory();
+		array=GetData(link);
+		standings = factory.getStandings(array);
+	
+        return standings;	
+	}
+	
 	
 	
 

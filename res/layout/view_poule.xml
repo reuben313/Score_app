@@ -21,7 +21,7 @@
         android:src="@drawable/dummyflag" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/standing_team_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -33,7 +33,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/standing_team_name_label"
         android:src="@drawable/dummyflag" />
 
     <TextView

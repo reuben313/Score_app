@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/standing_team_flag"
+        android:layout_width="64dp"
+        android:layout_height="50dp"
+        android:layout_weight="0.03"
+        android:src="@drawable/dummyflag" />
+
+    <TextView
+        android:id="@+id/standing_team_name_label"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/standing_team_win_label"
+        android:layout_width="14dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/standing_team_lose_label"
+        android:layout_width="14dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/standing_team_draw_label"
+        android:layout_width="14dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/standing_team_point_label"
+        android:layout_width="14dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+</LinearLayout>

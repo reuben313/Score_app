@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.epic.score_app.serviceslayer.ServiceProvider;
 import com.epic.score_app.view.R;
+import com.epic.score_app.viewlayer.adapters.StandingItemAdapter;
 
 import domainmodel.Group;
 import domainmodel.Standing;
@@ -17,16 +19,27 @@ import domainmodel.Standing;
 public class PouleDetailActivity extends Activity {
 	ArrayList<Standing> standings = new ArrayList<Standing>();
 	TableLayout table = null;
-	TextView land1, land2, land3, land4, win1, win2, win3, win4, draw1, draw2, draw3, draw4, lose1, lose2, lose3, lose4, point1, point2, point3, point4 = null;
+	private ListView stats;
+	private StandingItemAdapter adapter;
+	TextView mainlabel,land1, land2, land3, land4, win1, win2, win3, win4, draw1, draw2, draw3, draw4, lose1, lose2, lose3, lose4, point1, point2, point3, point4 = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.poule_detail_view);
+		setContentView(R.layout.poule_detail_view2);
+		stats=(ListView)findViewById(R.id.standing_detail_list);
+		mainlabel=(TextView) findViewById(R.id.poule_detail_text);
+		
 		Bundle b = getIntent().getExtras();
 		Group g = (Group) b.getSerializable("group");
+		mainlabel.setText(g.getName()+" win|lose|draw|points");
 		Bundle requestBundle = new Bundle();
 		requestBundle.putInt("requestcode", ServiceProvider.getStandingsByGroepID);
 		requestBundle.putInt("group_id",(int) g.getGroupId());
+		adapter = new StandingItemAdapter(this, standings);
+		stats.setAdapter(adapter);
+		
+		/*
+		
 		table = (TableLayout)findViewById(R.id.Table1);
 		
 		land1 = (TextView)findViewById(R.id.textView7);
@@ -52,9 +65,11 @@ public class PouleDetailActivity extends Activity {
 		draw4 =(TextView)findViewById(R.id.textView24);
 		lose4 = (TextView)findViewById(R.id.textView25);
 		point4 = (TextView)findViewById(R.id.textView26);
+		*/
 		
-		TextView p = (TextView)findViewById(R.id.textView1);
-		p.setText(g.getName());
+	//	TextView p = (TextView)findViewById(R.id.standing_team_name_label);
+	//	p.setText(g.getName());
+		ServiceProvider.getInsance().getData(requestBundle, handler);
 
 	}
 	
@@ -62,8 +77,9 @@ public class PouleDetailActivity extends Activity {
 	private Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			if (msg.what==ServiceProvider.getStandingsByGroepID_response) {
-				standings=(ArrayList<Standing>) msg.obj;
-			
+			ArrayList<Standing>	standings_=(ArrayList<Standing>) msg.obj;
+				adapter.addAll(standings_);
+			/*
 				land1.setText(standings.get(0).getTeam().getName());
 				land2.setText(standings.get(1).getTeam().getName());
 				land3.setText(standings.get(2).getTeam().getName());
@@ -88,6 +104,7 @@ public class PouleDetailActivity extends Activity {
 				point2.setText(standings.get(1).getPoint());
 				point3.setText(standings.get(2).getPoint());
 				point4.setText(standings.get(3).getPoint());
+				*/
 				}
 		};
 	};

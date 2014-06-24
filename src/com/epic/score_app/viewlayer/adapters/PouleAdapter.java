@@ -60,7 +60,7 @@ public class PouleAdapter extends ArrayAdapter<Group> {
 		Group g = list.get(position);
 		ArrayList<Team> teams = g.getGroupTeams();
 		TextView poule = (TextView)view.findViewById(R.id.textView0);
-		TextView team1 = (TextView)view.findViewById(R.id.textView1);
+		TextView team1 = (TextView)view.findViewById(R.id.standing_team_name_label);
 		TextView team2 = (TextView)view.findViewById(R.id.textView2);
 		TextView team3 = (TextView)view.findViewById(R.id.textView3);
 		TextView team4 = (TextView)view.findViewById(R.id.textView4);

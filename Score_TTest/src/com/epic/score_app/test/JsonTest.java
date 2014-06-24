@@ -200,4 +200,19 @@ public void testGetStandings()
 }
 
 
+public void testGetStandingsbygroupid()
+{
+	LeagueGateway gateway = new LeagueGateway(null);
+	ArrayList<Standing> standings = new ArrayList<Standing>();
+	standings=gateway.getStandingsByGroupid(1);
+	
+	assertTrue(standings.size()==4);
+	
+	
+	
+
+
+}
+
+
 }
