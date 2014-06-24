@@ -91,8 +91,8 @@ public class MatchItemAdapter extends ArrayAdapter<Match> {
 		thuis.setText(teamhome.getName());
 		uit.setText(teamuit.getName());
 		if(_match.getMatchStatus() == MATCH_STATUS.PLAYED){
-		thuisscore.setText("" + _match.getTeam_home_result());
-		uitscore.setText("" + _match.getTeam_visitor_result());
+		thuisscore.setText("" + _match.getTeam_visitor_result());
+		uitscore.setText("" + _match.getTeam_home_result());
 		}else{
 			thuisscore.setText("");
 			uitscore.setText("");
